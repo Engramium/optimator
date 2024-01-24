@@ -15,6 +15,8 @@ class AdminMenu {
 
     use \Engramium\Optimator\Traits\Singleton;
 
+    private $slug = 'optimator-settings';
+
     /**
      * initialization function
      *
@@ -23,6 +25,7 @@ class AdminMenu {
      */
     public function init() {
         add_action('admin_menu', [$this, 'admin_menu']);
+        add_action('in_admin_header', [$this, 'remove_all_notices'], PHP_INT_MAX);
     }
 
     /**
@@ -39,9 +42,9 @@ class AdminMenu {
             __('Optimator', 'optimator'),
             __('Optimator', 'optimator'),
             $capability,
-            $slug,
+            $this->slug,
             [$this, 'render_page'],
-            'dashicons-text',
+            OPTIMATOR_URL . 'public/img/menu-icon-default.png',
             30
         );
     }
@@ -54,5 +57,28 @@ class AdminMenu {
      */
     public function render_page() {
         echo '<div class="wrap"><div id="optimator-dashboard-app"></div></div>';
+    }
+
+    /**
+     * remove all notices from menu function
+     *
+     * @return void
+     * @since 1.0.0
+     */
+    public function remove_all_notices() {
+        if (!$this->is_page()) return;
+        remove_all_actions('admin_notices');
+        remove_all_actions('all_admin_notices');
+        remove_all_actions('user_admin_notices');
+    }
+
+    /**
+     * is menu page check function
+     *
+     * @return boolean
+     * @since 1.0.0
+     */
+    public function is_page() {
+        return (isset($_GET['page']) && (sanitize_text_field($_GET['page']) === $this->slug));
     }
 }

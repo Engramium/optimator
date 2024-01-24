@@ -74,6 +74,7 @@ class Optimator {
      */
     public function init_hooks() {
         add_action('init', array($this, 'localization_setup'));
+        add_filter('plugin_action_links_optimator/optimator.php', [$this, 'plugin_action_link_modify']);
     }
 
     /**
@@ -84,6 +85,26 @@ class Optimator {
      */
     public function localization_setup() {
         load_plugin_textdomain('optimator', false, OPTIMATOR_PATH . 'i18n/');
+    }
+
+    /**
+     * modify plugin action links function
+     *
+     * @param array $links
+     *
+     * @return array
+     * @since 1.0.0
+     */
+    public function plugin_action_link_modify($links) {
+        if (current_user_can('manage_options')) {
+            $settings  = '<a href="' . admin_url('admin.php?page=optimator-settings') . '">';
+            $settings .= esc_html__('Settings', 'optimator');
+            $settings .= '</a>';
+
+            array_unshift($links, $settings);
+        }
+
+        return $links;
     }
 
     /**

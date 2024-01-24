@@ -1,4 +1,5 @@
 === Optimator - WordPress Cleaner ===
+Plugin Name: Optimator
 Version: 1.0.0
 Author: engramium
 Author URI: https://engramium.com/
@@ -21,3 +22,5 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 	
 == Requirements ==
 To use the plugin there aren't any extra requirements. But it's always recommended to use the latest version of WordPress.
+
+== Changelog ==

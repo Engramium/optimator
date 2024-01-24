@@ -2,7 +2,7 @@
 /*
 Plugin Name: Optimator
 Plugin URI: https://wordpress.org/plugins/optimator/
-Description: A WordPress React.js plugin
+Description: Simplify and streamline WordPress by removing unnecessary data and functionalities.
 Version: 1.0.0
 Author: Engramium
 Author URI: https://engramium.com

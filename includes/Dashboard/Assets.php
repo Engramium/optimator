@@ -33,6 +33,8 @@ class Assets {
      * @since 1.0.0
      */
     public function enqueue_scripts() {
+        $screen = get_current_screen();
+        if ('toplevel_page_optimator-settings' != $screen->id) return;
         wp_enqueue_style('optimator-dashboard');
         wp_enqueue_script('optimator-dashboard');
         wp_localize_script('optimator-dashboard', 'optimator', [
