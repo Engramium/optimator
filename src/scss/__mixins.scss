@@ -1,0 +1,97 @@
+@mixin tablet_big {
+    @media (max-width: $tablet_big_breakpoint) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: $tablet_breakpoint) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: $mobile_breakpoint) {
+        @content;
+    }
+}
+
+@mixin title($position: center) {
+    color: $primary_text;
+    font-size: 48px;
+    font-weight: 400;
+    text-align: $position;
+    @include tablet() {
+        font-size: 35px;
+    }
+    @include mobile() {
+        font-size: 30px;
+    }
+}
+
+@mixin title_2($position: center) {
+    color: $primary_text;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: $position;
+    @include tablet() {
+        font-size: 28px;
+    }
+}
+
+@mixin title_3($position: center) {
+    color: $primary_text;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: $position;
+    @include tablet() {
+        font-size: 21px
+    }
+    @include mobile() {
+        font-size: 18px
+    }
+}
+
+@mixin desc($position: center) {
+    color: $secondary_text;
+    text-align: $position;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+
+    @include mobile() {
+        font-size: 18px;
+    }
+}
+
+@mixin desc_2($position: center) {
+    color: $secondary_text;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    text-align: $position;
+
+    @include mobile() {
+        font-size: 16px;
+    }
+}
+
+@mixin desc_3($position: center) {
+    color: $secondary_text;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: $position;
+
+    @include mobile() {
+        font-size: 15px;
+    }
+}
+
+@mixin flex($direction: row, $justify_center: center, $align_items: center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify_center;
+    align-items: $align_items;
+}

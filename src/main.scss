@@ -1,0 +1,167 @@
+@import './scss/_variables';
+@import './scss/_mixins';
+
+.toplevel_page_optimator-settings {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  section {
+    @include flex();
+  }
+
+  .btn {
+    @include flex();
+    text-decoration: none;
+    border-radius: 3px;
+    width: 50%;
+    padding: 20px 0;
+    font-size: 20px;
+    font-weight: 700;
+
+    @include tablet() {
+      font-size: 18px;
+    }
+
+    @include mobile() {
+      padding: 18px 0;
+      font-size: 14px;
+    }
+  }
+
+  .btn-primary {
+    background-color: $orange;
+    border: 1px solid rgba(0, 0, 0, 0.20);
+    color: #ffffff;
+
+    &:hover {
+      background-color: #fff;
+      color: $orange;
+    }
+  }
+
+  .btn-secondary {
+    background-color: #FFF;
+    border: 1px solid $border_color;
+    color: $secondary_text;
+
+    &:hover {
+      background-color: $secondary_text;
+      color: #fff;
+    }
+  }
+
+  .pro-badge {
+    width: 42px;
+  }
+
+  .icon {
+    height: 48px;
+    width: 48px;
+  }
+
+  .container {
+    max-width: 960px;
+
+    @include tablet_big() {
+      max-width: 95%;
+    }
+
+    @include mobile() {
+      max-width: 90%;
+    }
+  }
+
+  .button-wrap {
+    @include flex();
+    width: 100%;
+    max-width: 630px;
+    gap: 50px;
+
+    @include mobile() {
+      gap: 15px;
+    }
+  }
+
+  #wpwrap {
+    background-color: #F8FAFC;
+  }
+
+  #wpcontent {
+    padding-left: 0;
+  }
+
+  .wrap {
+    background-color: #F8FAFC;
+    margin: 0;
+
+    .menu-bar {
+      background-color: #ffffff;
+      @include flex();
+      padding: 0 30px;
+      gap: 30px;
+
+      .logo-wrap {
+        @include flex(row, flex-start);
+        width: 20%;
+        gap: 15px;
+
+        img {
+          width: 144px;
+        }
+
+        p {
+          background-color: #f4e1de;
+          border-radius: 25px;
+          border: 1px solid #d2ada7;
+          padding: 5px 20px;
+          font-weight: bold;
+        }
+      }
+
+      .menu-wrap {
+        @include flex(row, space-between);
+        width: 80%;
+        
+
+        .tabs {
+          @include flex();
+          gap: 30px;
+
+          .menu-item {
+            @include desc();
+            padding: 15px 0;
+            cursor: pointer;
+
+            border-bottom: 2px solid transparent;
+
+            &:hover {
+              border-bottom: 2px solid gray;
+            }
+
+            &.active {
+              color: green;
+              border-bottom: 2px solid green;
+            }
+          }
+        }
+
+        .actions {
+          @include flex();
+          gap: 30px;
+        }
+      }
+    }
+
+  }
+}

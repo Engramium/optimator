@@ -9,12 +9,12 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      minify: 'terser',
-      terserOptions: {
-        compress: {
-          keep_fnames: ['__'],
-        },
-      },
+      // minify: 'terser',
+      // terserOptions: {
+      //   compress: {
+      //     keep_fnames: ['__'],
+      //   },
+      // },
       output: {
         entryFileNames: `assets/[name].js`,
         chunkFileNames: `assets/[name].js`,

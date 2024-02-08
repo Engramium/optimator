@@ -1,32 +1,44 @@
 import { useState } from 'react'
-import './App.scss'
+import Welcome from './components/Welcome';
+import QuickToggle from './components/QuickToggle';
+import Optimize from './components/Optimize';
 
 function OptimatorApp() {
-  const [count, setCount] = useState(0)
+  const [tab, setTab] = useState('welcome')
   const { __, _x, _n, _nx } = wp.i18n;
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={optimator.plugin_url+'public/img/vite.svg'} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={optimator.plugin_url+'public/img/react.svg'} className="logo react" alt="React logo" />
-        </a>
+      <div className="menu-bar">
+        <div className="logo-wrap">
+          <img src={optimator.plugin_url + 'public/logo/main-logo.svg'} alt="Optimator Main Logo" />
+          {/* <p>v{optimator.plugin_version}</p> */}
+          <p>v1.0.0</p>
+        </div>
+        <div className="menu-wrap">
+          <div className="tabs">
+            <a className={tab == 'welcome' ? 'menu-item active' : 'menu-item'} onClick={() => setTab('welcome')}>Welcome</a>
+            <a className={tab == 'quick-toggle' ? 'menu-item active' : 'menu-item'} onClick={() => setTab('quick-toggle')}>Quick Toggle</a>
+            <a className={tab == 'optimize' ? 'menu-item active' : 'menu-item'} onClick={() => setTab('optimize')}>Optimize</a>
+          </div>
+          <div className="actions">
+            <a className="updrage">Updrage</a>
+            <a className="help">Help</a>
+          </div>
+        </div>
       </div>
-      <h1>{__('Optimator plugin structure with React + Vite')}</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          {__('count is')} {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className="content">
+        {
+          tab == 'welcome' ?
+            <Welcome /> :
+            tab == 'quick-toggle' ?
+              <QuickToggle /> :
+              <Optimize />
+        }
       </div>
-      <p className="read-the-docs">
-        {__('Click on the Vite and React logos to learn more')}
-      </p>
+      {/* <div className="footer">
+        Footer
+      </div> */}
     </>
   )
 }
