@@ -3,7 +3,6 @@ Plugin Name: Optimator
 Version: 1.0.0
 Author: engramium
 Author URI: https://engramium.com/
-Contributors: sayedulsayem
 Tags:  revision, draft, Cleaner
 Requires at least: 5.0
 Tested up to: 6.4

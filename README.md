@@ -31,6 +31,6 @@ Simplify and streamline WordPress by removing unnecessary data and functionaliti
 
 ## About
 
-Made by [Sayedul Sayem](https://sayedulsayem.com).
+Made by [Engramium](https://engramium.com/).
 
 *Found anything that can be improved? You are welcome to contribute.*
