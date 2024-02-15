@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-01-30T01:21:05+06:00\n"
+"POT-Creation-Date: 2024-02-15T23:28:38+06:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: optimator\n"
@@ -40,10 +40,14 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: src/App.jsx:17
-msgid "Optimator plugin structure with React + Vite"
+#: dist/assets/index.js:17
+msgid "Welcome"
 msgstr ""
 
-#: src/App.jsx:20
-msgid "count is"
+#: dist/assets/index.js:17
+msgid "Quick Toggle"
+msgstr ""
+
+#: dist/assets/index.js:17
+msgid "Optimize"
 msgstr ""

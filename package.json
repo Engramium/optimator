@@ -37,6 +37,8 @@
     "eslint": "^8.55.0",
     "postcss": "^8.4.35",
     "sass": "^1.70.0",
+    "unplugin-auto-import": "^0.17.5",
+    "unplugin-vue-components": "^0.26.0",
     "vite": "^5.0.8"
   }
 }
