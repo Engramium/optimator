@@ -77,9 +77,9 @@ class RegisterAssets {
         $env = Helper::instance()->read_env_file();
 
         if (!empty($env)) {
-            $this->add_script_to_auto_reload($env);
+            // $this->add_script_to_auto_reload($env);
             $port = intval(isset($env['VITE_PORT']) ? $env['VITE_PORT'] : 4000);
-            $main_src = "//localhost:{$port}/src/main.jsx";
+            $main_src = "//localhost:{$port}/src/main.js";
             $version = time();
         } else {
             $main_src = OPTIMATOR_URL . 'dist/assets/index.js';
@@ -89,7 +89,7 @@ class RegisterAssets {
         $scripts = [
             'optimator-dashboard' => [
                 'src'       => $main_src,
-                'deps'      => ['jquery', 'react', 'react-dom', 'wp-i18n'],
+                'deps'      => ['jquery', 'wp-i18n'],
                 'version'   => $version,
                 'in_footer' => true
             ]
