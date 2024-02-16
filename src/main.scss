@@ -16,85 +16,13 @@
     width: 100%;
   }
 
-  section {
-    @include flex();
-  }
-
-  .btn {
-    @include flex();
-    text-decoration: none;
-    border-radius: 3px;
-    width: 50%;
-    padding: 20px 0;
-    font-size: 20px;
-    font-weight: 700;
-
-    @include tablet() {
-      font-size: 18px;
-    }
-
-    @include mobile() {
-      padding: 18px 0;
-      font-size: 14px;
-    }
-  }
-
-  .btn-primary {
-    background-color: $orange;
-    border: 1px solid rgba(0, 0, 0, 0.20);
-    color: #ffffff;
-
-    &:hover {
-      background-color: #fff;
-      color: $orange;
-    }
-  }
-
-  .btn-secondary {
-    background-color: #FFF;
-    border: 1px solid $border_color;
-    color: $secondary_text;
-
-    &:hover {
-      background-color: $secondary_text;
-      color: #fff;
-    }
-  }
-
-  .pro-badge {
-    width: 42px;
-  }
-
   .icon {
-    height: 48px;
-    width: 48px;
+    height: 25px;
+    width: 25px;
   }
 
   .pointer {
     cursor: pointer;
-  }
-
-  .container {
-    max-width: 960px;
-
-    @include tablet_big() {
-      max-width: 95%;
-    }
-
-    @include mobile() {
-      max-width: 90%;
-    }
-  }
-
-  .button-wrap {
-    @include flex();
-    width: 100%;
-    max-width: 630px;
-    gap: 50px;
-
-    @include mobile() {
-      gap: 15px;
-    }
   }
 
   #wpwrap {
@@ -105,66 +33,22 @@
     padding-left: 0;
   }
 
+  #wpbody-content {
+    padding-bottom: unset;
+  }
+
+  #optimator-dashboard-app {
+    height: 100%;
+  }
+
   .wrap {
     background-color: #F8FAFC;
     margin: 0;
+    height: calc(100vh - 32px);
+    min-height: 1080px;
+  }
 
-    .menu-bar {
-      background-color: #ffffff;
-      @include flex();
-      padding: 0 30px;
-      gap: 30px;
-
-      .logo-wrap {
-        @include flex(row, flex-start);
-        width: 20%;
-        gap: 15px;
-
-        img {
-          width: 144px;
-        }
-
-        p {
-          background-color: #f4e1de;
-          border-radius: 25px;
-          border: 1px solid #d2ada7;
-          padding: 5px 20px;
-          font-weight: bold;
-        }
-      }
-
-      .menu-wrap {
-        @include flex(row, space-between);
-        width: 80%;
-        
-
-        .tabs {
-          @include flex();
-          gap: 30px;
-
-          .menu-item {
-            padding: 15px 0;
-            cursor: pointer;
-
-            border-bottom: 2px solid transparent;
-
-            &:hover {
-              border-bottom: 2px solid gray;
-            }
-
-            &.active {
-              color: #67C23A;
-              border-bottom: 2px solid #67C23A;
-            }
-          }
-        }
-
-        .actions {
-          @include flex();
-          gap: 30px;
-        }
-      }
-    }
-
+  #wpfooter {
+    display: none;
   }
 }
