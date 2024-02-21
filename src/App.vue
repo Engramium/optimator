@@ -7,10 +7,10 @@ import Optimize from "./components/Optimize.vue";
 import { StarFilled } from "@element-plus/icons-vue";
 import Help from "./components/parts/Help.vue";
 
-const tab = ref("welcome");
 </script>
+
 <template>
-  <div class="optimator-layout">
+  <div class="optimator-layout" :class="data.currentTab">
     <div class="optimator-header">
       <div class="menu-bar">
         <div class="logo-wrap">
@@ -24,22 +24,22 @@ const tab = ref("welcome");
           <div class="tabs">
             <el-text
               class="mx-1"
-              :class="tab == 'welcome' ? 'menu-item active' : 'menu-item'"
-              @click="tab = 'welcome'"
+              :class="data.currentTab == 'welcome' ? 'menu-item active' : 'menu-item'"
+              @click="data.currentTab = 'welcome'; fn.setCurrentTab('welcome')"
               size="large"
               >{{ __("Welcome", "optimator") }}</el-text
             >
             <el-text
               class="mx-1"
-              :class="tab == 'quick-toggle' ? 'menu-item active' : 'menu-item'"
-              @click="tab = 'quick-toggle'"
+              :class="data.currentTab == 'quick-toggle' ? 'menu-item active' : 'menu-item'"
+              @click="data.currentTab = 'quick-toggle'; fn.setCurrentTab('quick-toggle')"
               size="large"
               >{{ __("Quick Toggle", "optimator") }}</el-text
             >
             <el-text
               class="mx-1"
-              :class="tab == 'optimize' ? 'menu-item active' : 'menu-item'"
-              @click="tab = 'optimize'"
+              :class="data.currentTab == 'optimize' ? 'menu-item active' : 'menu-item'"
+              @click="data.currentTab = 'optimize'; fn.setCurrentTab('optimize')"
               size="large"
               >{{ __("Optimize", "optimator") }}</el-text
             >
@@ -53,9 +53,9 @@ const tab = ref("welcome");
     </div>
     <div class="optimator-content">
       <div class="content">
-        <Welcome v-if="tab == 'welcome'" />
-        <QuickToggle v-if="tab == 'quick-toggle'" />
-        <Optimize v-if="tab == 'optimize'" />
+        <Welcome v-if="data.currentTab == 'welcome'" />
+        <QuickToggle v-if="data.currentTab == 'quick-toggle'" />
+        <Optimize v-if="data.currentTab == 'optimize'" />
       </div>
     </div>
     <div class="optimator-footer">
@@ -106,6 +106,7 @@ const tab = ref("welcome");
     </div>
   </div>
 </template>
+
 <style scoped lang="scss">
 @import "./scss/_variables";
 @import "./scss/_mixins";

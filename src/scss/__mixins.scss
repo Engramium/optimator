@@ -16,6 +16,18 @@
     }
 }
 
+@mixin card() {
+    @include flex(column, center, flex-start);
+
+    border-radius: 4px;
+    border: 1px solid #e4e7ed;
+    background-color: #ffffff;
+    overflow: hidden;
+    color: #303133;
+    transition: 0.3s;
+    box-shadow: $box_shadow;
+}
+
 @mixin title($position: center) {
 }
 

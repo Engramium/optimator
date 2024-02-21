@@ -40,7 +40,9 @@ class Assets {
         wp_localize_script('optimator-dashboard', 'optimator', [
             'plugin_url' => OPTIMATOR_URL,
             'plugin_path' => OPTIMATOR_PATH,
-            'plugin_version' => OPTIMATOR_VERSION
+            'plugin_version' => OPTIMATOR_VERSION,
+            'admin_ajax' => admin_url('admin-ajax.php'),
+            'nonce' => wp_create_nonce('optimator_nonce'),
         ]);
     }
 
