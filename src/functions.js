@@ -16,7 +16,7 @@ const fn = {
             }
             Object.keys(params).forEach(key => {
                 if (key != 'action' && typeof params[key] != 'object') {
-                    requestUrl += `&${key}=$${params[key]}`;
+                    requestUrl += `&${key}=${params[key]}`;
                 }
             });
         }

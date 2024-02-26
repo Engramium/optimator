@@ -1,15 +1,17 @@
 <script setup>
 import { ref } from "vue";
-import {data, fn, icons} from "../../data";
+import { data, fn, icons } from "../../data";
 import { QuestionFilled } from "@element-plus/icons-vue";
 
-const props = defineProps(["toggle", "content"]);
-const emits = defineEmits(['updateToggle']);
+const props = defineProps(["modelValue", "content"]);
+const emits = defineEmits(["update:modelValue", "updateToggle"]);
 
-const toggleFeature = () => {
-    emits('updateToggle');
-}
-
+const toggleFeature = (event) => {
+  // debugger;
+  console.log('toggle feature event fire');
+  emits("update:modelValue", event);
+  // emits("updateToggle");
+};
 </script>
 
 <template>
@@ -28,7 +30,30 @@ const toggleFeature = () => {
         </el-tooltip>
       </div>
     </div>
-    <el-switch v-model="toggle.value" size="large" @change="toggleFeature()" />
+
+    <el-switch
+      v-if="!content.hasOwnProperty('options')"
+      :model-value="modelValue"
+      size="large"
+      @input="toggleFeature($event)"
+    />
+
+    <el-select
+      v-else
+      class="m-2"
+      placeholder="Select"
+      size="large"
+      style="width: 240px"
+      :model-value="modelValue"
+      @input="toggleFeature($event)"
+    >
+      <el-option
+        v-for="(item, key) in content.options"
+        :key="key"
+        :label="item"
+        :value="key"
+      />
+    </el-select>
   </div>
 </template>
 

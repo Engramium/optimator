@@ -2,7 +2,7 @@
 Simplify and streamline WordPress by removing unnecessary data and functionalities.
 
 ## Build & Required Tech Stack
-- React.js 18.2.43
+- Vue.js 3.3.11
 - Vite 5.0.8
 - PHP 7.4 or greater
 - WordPress 5.0 or greater
