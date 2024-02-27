@@ -7,9 +7,7 @@ import Optimize from "./components/Optimize.vue";
 import { StarFilled } from "@element-plus/icons-vue";
 import Help from "./components/parts/Help.vue";
 
-// debugger;
 const getQuickToggles = () => {
-  // debugger;
   const loading = ElLoading.service({
     fullscreen: true,
     lock: true,
@@ -23,8 +21,7 @@ const getQuickToggles = () => {
   });
 
   res.then((response) => {
-    // debugger;
-    if (response.success) {
+    if (response.status) {
       data.quickToggles = response.data;
     }
     loading.close();

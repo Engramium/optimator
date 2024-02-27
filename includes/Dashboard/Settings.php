@@ -22,7 +22,7 @@ class Settings {
         if (empty($quick_toggles)) {
             return [
                 'generals' => [
-                    'disable_emojis' => true,
+                    'disable_emojis' => false,
                     'disable_embeds' => false,
                     'disable_dashicons' => false,
                     'disable_xml_rpc' => false,
@@ -59,7 +59,31 @@ class Settings {
     }
 
     public function update_quick_toggles($data) {
+        $data = $this->sanitize_inputs($data);
         $quick_toggles = update_option("{$this->settings_key}__quick_toggles", $data, true);
         return $quick_toggles;
+    }
+
+    public function sanitize_inputs($inputs) {
+        foreach ($inputs as $key => &$value) {
+            if (is_array($value) || is_object($value)) {
+                $value = $this->sanitize_inputs($value);
+            } else {
+                if ("disable_rest_api" == $key) {
+                    $value = sanitize_text_field($value);
+                } else if ("disable_heartbeat" == $key) {
+                    $value = sanitize_text_field($value);
+                } else if ("heartbeat_frequency" == $key) {
+                    $value = sanitize_text_field($value);
+                } else if ("limit_post_revisions" == $key) {
+                    $value = sanitize_text_field($value);
+                } else if ("autosave_interval" == $key) {
+                    $value = sanitize_text_field($value);
+                } else {
+                    $value = filter_var($value, FILTER_VALIDATE_BOOLEAN);
+                }
+            }
+        }
+        return $inputs;
     }
 }

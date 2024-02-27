@@ -31,8 +31,10 @@ class AjaxHandler {
     public function check_nonce() {
         $status = check_ajax_referer('optimator_nonce', 'nonce');
         if (!$status) {
-            wp_send_json_error([
-                'message' => 'Unathorized Reqeust'
+            wp_send_json([
+                'status' => true,
+                'msg' => 'Unauthorized Request',
+                'data' => [],
             ]);
         }
     }
@@ -42,12 +44,20 @@ class AjaxHandler {
         $request = $_REQUEST;
         unset($request['action']);
         unset($request['nonce']);
-        $quick_toggles = Settings::instance()->update_quick_toggles($request);
-        wp_send_json_success($quick_toggles);
+        $status = Settings::instance()->update_quick_toggles($request);
+        wp_send_json([
+            'status' => $status,
+            'msg' => 'Quick Toggle Updated.',
+            'data' => $request,
+        ]);
     }
 
     public function get_quick_toggles() {
         $this->check_nonce();
-        wp_send_json_success(Settings::instance()->get_quick_toggles());
+        wp_send_json([
+            'status' => true,
+            'msg' => 'Quick Toggle get.',
+            'data' => Settings::instance()->get_quick_toggles(),
+        ]);
     }
 }

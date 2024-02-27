@@ -7,10 +7,8 @@ const props = defineProps(["modelValue", "content"]);
 const emits = defineEmits(["update:modelValue", "updateToggle"]);
 
 const toggleFeature = (event) => {
-  // debugger;
-  console.log('toggle feature event fire');
   emits("update:modelValue", event);
-  // emits("updateToggle");
+  emits("updateToggle");
 };
 </script>
 
@@ -35,7 +33,7 @@ const toggleFeature = (event) => {
       v-if="!content.hasOwnProperty('options')"
       :model-value="modelValue"
       size="large"
-      @input="toggleFeature($event)"
+      @change="toggleFeature($event)"
     />
 
     <el-select
@@ -45,7 +43,7 @@ const toggleFeature = (event) => {
       size="large"
       style="width: 240px"
       :model-value="modelValue"
-      @input="toggleFeature($event)"
+      @change="toggleFeature($event)"
     >
       <el-option
         v-for="(item, key) in content.options"

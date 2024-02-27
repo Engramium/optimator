@@ -143,16 +143,16 @@ const quickToggles = {
       options: {
         default: "Default (Enabled)",
         disable: "Disable Post Revisions",
-        post_1: "1",
-        post_2: "2",
-        post_3: "3",
-        post_4: "4",
-        post_5: "5",
-        post_10: "10",
-        post_15: "15",
-        post_20: "20",
-        post_25: "25",
-        post_30: "30",
+        revisions_1: "1 Revision",
+        revisions_2: "2 Revisions",
+        revisions_3: "3 Revisions",
+        revisions_4: "4 Revisions",
+        revisions_5: "5 Revisions",
+        revisions_10: "10 Revisions",
+        revisions_15: "15 Revisions",
+        revisions_20: "20 Revisions",
+        revisions_25: "25 Revisions",
+        revisions_30: "30 Revisions",
       },
     },
     autosave_interval: {
@@ -244,18 +244,26 @@ const updateToggle = () => {
   });
 
   res.then((response) => {
-    console.log(response);
-    ElNotification({
-      title: "Success",
-      message: "This is a success message",
-      type: "success",
-      offset: 50,
-    });
+    if (response.status) {
+      ElNotification({
+        title: "Success",
+        message: response.msg,
+        type: "success",
+        offset: 50,
+      });
+    } else {
+      ElNotification({
+        title: "Error",
+        message: response.msg,
+        type: "error",
+        offset: 50,
+      });
+    }
   });
 };
 </script>
 <template>
-  <div class="quick-toggle-wrap">
+  <div v-if="data.quickToggles != null" class="quick-toggle-wrap">
     <div class="feature-wrap">
       <div class="feature-header">
         <el-text class="mx-1" tag="p" size="large">{{
