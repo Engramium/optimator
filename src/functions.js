@@ -15,8 +15,8 @@ const fn = {
                 requestUrl += `?action=${params.action}`;
             }
             Object.keys(params).forEach(key => {
-                if (key != 'action' && typeof params[key] != 'object') {
-                    requestUrl += `&${key}=${params[key]}`;
+                if (key != 'action' && typeof params[ key ] != 'object') {
+                    requestUrl += `&${key}=${params[ key ]}`;
                 }
             });
         }
@@ -36,7 +36,7 @@ const fn = {
             Object.keys(data).forEach((key) => {
                 this.convertObjectToFormData(
                     formData,
-                    data[key],
+                    data[ key ],
                     parentKey ? `${parentKey}[${key}]` : key
                 );
             });
@@ -58,6 +58,16 @@ const fn = {
     getLocalStorage: function (key) {
         return localStorage.getItem(key);
     },
+    titleCase(str) {
+        str = str.replace(/-/g, " ");
+        return str
+            .toLowerCase()
+            .split(" ")
+            .map(function (word) {
+                return word.charAt(0).toUpperCase() + word.slice(1);
+            })
+            .join(" ");
+    }
 };
 
 export default fn;

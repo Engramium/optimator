@@ -232,10 +232,10 @@ const toggleAll = (action, feature) => {
     });
   }
 
-  updateToggle();
+  updateToggle({feature: `All ${fn.titleCase(feature)}`, status: ("active" == action)});
 };
 
-const updateToggle = () => {
+const updateToggle = (content) => {
   const res = fn.fetchAdminAjax(optimator.admin_ajax, "post", {
     action: "optimator_update_quick_toggles",
     generals: data.quickToggles.generals,
@@ -243,11 +243,13 @@ const updateToggle = () => {
     nonce: optimator.nonce,
   });
 
+  let msg = `${content.feature}: ${content.status? 'Enabled': 'Disabled'}`
+
   res.then((response) => {
     if (response.status) {
       ElNotification({
         title: "Success",
-        message: response.msg,
+        message: msg,
         type: "success",
         offset: 50,
       });
@@ -287,7 +289,7 @@ const updateToggle = () => {
             class="grid-item"
           >
             <Toggle
-              @update-toggle="updateToggle()"
+              @update-toggle="updateToggle"
               :content="general"
               v-model="data.quickToggles.generals[index]"
             />

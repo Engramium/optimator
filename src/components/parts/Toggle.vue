@@ -6,9 +6,9 @@ import { QuestionFilled } from "@element-plus/icons-vue";
 const props = defineProps(["modelValue", "content"]);
 const emits = defineEmits(["update:modelValue", "updateToggle"]);
 
-const toggleFeature = (event) => {
+const toggleFeature = (event, content) => {
   emits("update:modelValue", event);
-  emits("updateToggle");
+  emits("updateToggle", {feature: content.title, status: event});
 };
 </script>
 
@@ -33,7 +33,7 @@ const toggleFeature = (event) => {
       v-if="!content.hasOwnProperty('options')"
       :model-value="modelValue"
       size="large"
-      @change="toggleFeature($event)"
+      @change="toggleFeature($event, content)"
     />
 
     <el-select
@@ -43,7 +43,7 @@ const toggleFeature = (event) => {
       size="large"
       style="width: 240px"
       :model-value="modelValue"
-      @change="toggleFeature($event)"
+      @change="toggleFeature($event, content)"
     >
       <el-option
         v-for="(item, key) in content.options"
