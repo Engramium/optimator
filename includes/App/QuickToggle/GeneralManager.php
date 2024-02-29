@@ -30,6 +30,10 @@ class GeneralManager {
         $this->hide_wp_version();
         $this->remove_wlwmanifest_link();
         $this->remove_rsd_link();
+        $this->remove_shortlink();
+        add_action('template_redirect', [$this, 'disable_rss_feeds'], 1);
+        $this->remove_rss_feed_links();
+        add_action('pre_ping', [$this, 'disable_self_pingbacks']);
     }
 
     public function disable_emojis() {
@@ -160,6 +164,55 @@ class GeneralManager {
     public function remove_rsd_link() {
         if (is_bool($this->generals['remove_rsd_link']) && $this->generals['remove_rsd_link']) {
             remove_action('wp_head', 'rsd_link');
+        }
+    }
+
+    public function remove_shortlink() {
+        if (is_bool($this->generals['remove_shortlink']) && $this->generals['remove_shortlink']) {
+            remove_action('wp_head', 'wp_shortlink_wp_head');
+            remove_action('template_redirect', 'wp_shortlink_header', 11, 0);
+        }
+    }
+
+    public function disable_rss_feeds() {
+        if (is_bool($this->generals['disable_rss_feeds']) && $this->generals['disable_rss_feeds']) {
+            if (!is_feed() || is_404()) {
+                return;
+            }
+
+            global $wp_rewrite;
+            global $wp_query;
+
+            if (isset($_GET['feed'])) {
+                wp_redirect(esc_url_raw(remove_query_arg('feed')), 301);
+                exit;
+            }
+
+            if (get_query_var('feed') !== 'old') {
+                set_query_var('feed', '');
+            }
+
+            redirect_canonical();
+
+            wp_die(sprintf(__("No feed available, please visit the <a href='%s'>homepage</a>!"), esc_url(home_url('/'))));
+        }
+    }
+
+    public function remove_rss_feed_links() {
+        if (is_bool($this->generals['remove_rss_feed_links']) && $this->generals['remove_rss_feed_links']) {
+            remove_action('wp_head', 'feed_links', 2);
+            remove_action('wp_head', 'feed_links_extra', 3);
+        }
+    }
+
+    public function disable_self_pingbacks(&$links) {
+        if (is_bool($this->generals['disable_self_pingbacks']) && $this->generals['disable_self_pingbacks']) {
+            $home = get_option('home');
+            foreach ($links as $l => $link) {
+                if (strpos($link, $home) === 0) {
+                    unset($links[$l]);
+                }
+            }
         }
     }
 }
