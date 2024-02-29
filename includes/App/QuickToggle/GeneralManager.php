@@ -27,6 +27,7 @@ class GeneralManager {
         add_action('wp_enqueue_scripts', [$this, 'disable_dashicons']);
         $this->disable_xml_rpc();
         add_filter('wp_default_scripts', [$this, 'remove_jquery_migrate']);
+        $this->hide_wp_version();
     }
 
     public function disable_emojis() {
@@ -99,12 +100,12 @@ class GeneralManager {
         }
     }
 
-    function remove_x_pingback($headers) {
+    public function remove_x_pingback($headers) {
         unset($headers['X-Pingback'], $headers['x-pingback']);
         return $headers;
     }
     
-    function remove_pingback_links($html) {
+    public function remove_pingback_links($html) {
         preg_match_all('#<link[^>]+rel=["\']pingback["\'][^>]+?\/?>#is', $html, $links, PREG_SET_ORDER);
         if(!empty($links)) {
             foreach($links as $link) {
@@ -114,7 +115,7 @@ class GeneralManager {
         return $html;
     }
     
-    function intercept_xmlrpc_header() {
+    public function intercept_xmlrpc_header() {
         if(!isset($_SERVER['SCRIPT_FILENAME'])) {
             return;
         }
@@ -130,10 +131,21 @@ class GeneralManager {
         die();
     }
 
-    function remove_jquery_migrate(&$scripts) {
+    public function remove_jquery_migrate(&$scripts) {
         if(!is_admin()) {
             $scripts->remove('jquery');
             $scripts->add('jquery', false, array( 'jquery-core' ), '1.12.4');
         }
+    }
+
+    public function hide_wp_version () {
+        if(is_bool($this->generals['hide_wp_version']) && $this->generals['hide_wp_version']) {
+            remove_action('wp_head', 'wp_generator');
+            add_filter('the_generator', [$this, 'optimator_hide_wp_version']);
+        }
+    }
+
+    public function optimator_hide_wp_version() {
+        return '';
     }
 }
