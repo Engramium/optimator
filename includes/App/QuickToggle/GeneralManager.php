@@ -24,7 +24,8 @@ class GeneralManager {
         $this->generals = isset($settings['generals']) ? $settings['generals'] : [];
         add_action('init', [$this, 'disable_emojis']);
         add_action('init', [$this, 'disable_embeds'], PHP_INT_MAX);
-        add_action('wp_enqueue_scripts', [$this, 'disable_dashicons']);
+        // add_action('wp_enqueue_scripts', [$this, 'disable_dashicons']);
+        add_action('wp_enqueue_scripts', [$this, 'modify_scripts_registration'], PHP_INT_MAX);
         $this->disable_xml_rpc();
         add_filter('wp_default_scripts', [$this, 'remove_jquery_migrate']);
         $this->hide_wp_version();
@@ -36,6 +37,7 @@ class GeneralManager {
         add_action('pre_ping', [$this, 'disable_self_pingbacks']);
         add_filter('rest_authentication_errors', [$this, 'disable_rest_api'], 20);
         $this->remove_rest_api_links();
+        add_action('wp_print_scripts', [$this, 'disable_password_strength_meter'], 100);
     }
 
     public function disable_emojis() {
@@ -87,12 +89,19 @@ class GeneralManager {
         return $rules;
     }
 
-    public function disable_dashicons() {
+    public function modify_scripts_registration() {
         if (is_bool($this->generals['disable_dashicons']) && $this->generals['disable_dashicons']) {
-            if (!is_user_logged_in()) {
-                wp_dequeue_style('dashicons');
-                wp_deregister_style('dashicons');
-            }
+            $this->disable_dashicons();
+        }
+        if (is_bool($this->generals['disable_google_maps']) && $this->generals['disable_google_maps']) {
+            $this->disable_google_maps();
+        }
+    }
+
+    public function disable_dashicons() {
+        if (!is_user_logged_in()) {
+            wp_dequeue_style('dashicons');
+            wp_deregister_style('dashicons');
         }
     }
 
@@ -255,6 +264,30 @@ class GeneralManager {
             remove_action('xmlrpc_rsd_apis', 'rest_output_rsd');
             remove_action('wp_head', 'rest_output_link_wp_head');
             remove_action('template_redirect', 'rest_output_link_header', 11, 0);
+        }
+    }
+
+    public function disable_google_maps() {
+        $wp_scripts = wp_scripts();
+        $wp_styles  = wp_styles();
+        foreach ($wp_scripts->queue as $handle) {
+            $src = $wp_scripts->registered[$handle]->src;
+
+            if (($src && (strpos($src, 'maps.google.com') !== false || strpos($src, 'maps.googleapis.com') !== false || strpos($src, 'maps.gstatic.com') !== false))) {
+                wp_dequeue_script($handle);
+            }
+            if (($handle && (strpos($handle, 'maps.google.com') !== false || strpos($handle, 'maps.googleapis.com') !== false || strpos($handle, 'maps.gstatic.com') !== false))) {
+                wp_dequeue_script($handle);
+            }
+        }
+        foreach ($wp_styles->queue as $handle) {
+            $src = $wp_styles->registered[$handle]->src;
+            if (($src && (strpos($src, 'maps.google.com') !== false || strpos($src, 'maps.googleapis.com') !== false || strpos($src, 'maps.gstatic.com') !== false))) {
+                wp_dequeue_script($handle);
+            }
+            if (($handle && (strpos($handle, 'maps.google.com') !== false || strpos($handle, 'maps.googleapis.com') !== false || strpos($handle, 'maps.gstatic.com') !== false))) {
+                wp_dequeue_script($handle);
+            }
         }
     }
 }
