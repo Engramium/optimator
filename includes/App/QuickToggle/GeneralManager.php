@@ -35,6 +35,7 @@ class GeneralManager {
         $this->remove_rss_feed_links();
         add_action('pre_ping', [$this, 'disable_self_pingbacks']);
         add_filter('rest_authentication_errors', [$this, 'disable_rest_api'], 20);
+        $this->remove_rest_api_links();
     }
 
     public function disable_emojis() {
@@ -247,5 +248,13 @@ class GeneralManager {
             return new \WP_Error('rest_authentication_error', __('Sorry, you do not have permission to make REST API requests.', 'optimator'), array('status' => 401));
         }
         return $result;
+    }
+
+    public function remove_rest_api_links() {
+        if (is_bool($this->generals['remove_rest_api_links']) && $this->generals['remove_rest_api_links']) {
+            remove_action('xmlrpc_rsd_apis', 'rest_output_rsd');
+            remove_action('wp_head', 'rest_output_link_wp_head');
+            remove_action('template_redirect', 'rest_output_link_header', 11, 0);
+        }
     }
 }
