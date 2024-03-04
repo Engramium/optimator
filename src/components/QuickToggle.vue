@@ -222,7 +222,7 @@ const toggleAll = (action, feature) => {
       if ("disable_rest_api" == key) {
         item = "default";
       } else if ("disable_heartbeat" == key) {
-        item = "default";
+        item = "seconds_60";
       } else if ("heartbeat_frequency" == key) {
         item = "seconds_15";
       } else if ("limit_post_revisions" == key) {

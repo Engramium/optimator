@@ -392,11 +392,11 @@ class GeneralManager {
     }
 
     public function limit_post_revisions() {
-        if (is_string($this->generals['limit_post_revisions']) && !empty($this->generals['limit_post_revisions'])) {
+        if (is_string($this->generals['limit_post_revisions']) && $this->generals['limit_post_revisions'] != 'default') {
             $revision = $this->generals['limit_post_revisions'];
-            if($revision == 'disable') {
+            if ($revision == 'disable') {
                 $split_arr = ['', false];
-            }else {
+            } else {
                 $split_arr = explode('_', $revision);
             }
             if (defined('WP_POST_REVISIONS')) {
