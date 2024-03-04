@@ -38,6 +38,12 @@ class GeneralManager {
         add_filter('rest_authentication_errors', [$this, 'disable_rest_api'], 20);
         $this->remove_rest_api_links();
         add_action('wp_print_scripts', [$this, 'disable_password_strength_meter'], 100);
+        add_action('wp_head', [$this, 'add_blank_favicon']);
+        $this->disable_global_styles();
+        add_action('init', [$this, 'disable_heartbeat'], 1);
+        add_filter('heartbeat_settings', [$this, 'heartbeat_frequency']);
+        $this->limit_post_revisions();
+        $this->autosave_interval();
     }
 
     public function disable_emojis() {
@@ -287,6 +293,142 @@ class GeneralManager {
             }
             if (($handle && (strpos($handle, 'maps.google.com') !== false || strpos($handle, 'maps.googleapis.com') !== false || strpos($handle, 'maps.gstatic.com') !== false))) {
                 wp_dequeue_script($handle);
+            }
+        }
+    }
+
+    public function disable_password_strength_meter() {
+        if (is_bool($this->generals['disable_password_strength_meter']) && $this->generals['disable_password_strength_meter']) {
+            if (is_admin()) {
+                return;
+            }
+
+            if ((isset($GLOBALS['pagenow']) && $GLOBALS['pagenow'] === 'wp-login.php') || (isset($_GET['action']) && in_array($_GET['action'], ['rp', 'lostpassword', 'register']))) {
+                return;
+            }
+
+            if (class_exists('WooCommerce') && (is_cart() || is_checkout() || is_account_page())) {
+                return;
+            }
+
+            wp_dequeue_script('zxcvbn-async');
+            wp_deregister_script('zxcvbn-async');
+
+            wp_dequeue_script('password-strength-meter');
+            wp_deregister_script('password-strength-meter');
+
+            wp_dequeue_script('wc-password-strength-meter');
+            wp_deregister_script('wc-password-strength-meter');
+        }
+    }
+
+    // TODO: Need to work for comments disable
+
+    public function add_blank_favicon() {
+        if (is_bool($this->generals['add_blank_favicon']) && $this->generals['add_blank_favicon']) {
+            echo '<link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon" />';
+        }
+    }
+
+    public function disable_global_styles() {
+        if (is_bool($this->generals['disable_global_styles']) && $this->generals['disable_global_styles']) {
+            add_action('after_setup_theme', function () {
+                remove_action('wp_enqueue_scripts', 'wp_enqueue_global_styles');
+                remove_action('wp_footer', 'wp_enqueue_global_styles', 1);
+                remove_action('wp_body_open', 'wp_global_styles_render_svg_filters');
+                remove_action('in_admin_header', 'wp_global_styles_render_svg_filters');
+            });
+        }
+    }
+
+    public function disable_heartbeat() {
+        if (is_string($this->generals['disable_heartbeat']) && $this->generals['disable_heartbeat'] != 'default') {
+            if (is_admin()) {
+                global $pagenow;
+                if (!empty($pagenow)) {
+                    if ($pagenow == 'admin.php') {
+                        if (!empty($_GET['page'])) {
+                            $exceptions = array(
+                                'gf_edit_forms',
+                                'gf_entries',
+                                'gf_settings'
+                            );
+                            if (in_array($_GET['page'], $exceptions)) {
+                                return;
+                            }
+                        }
+                    }
+                    if ($pagenow == 'site-health.php') {
+                        return;
+                    }
+                }
+            }
+
+            $disable = false;
+
+            if ($this->generals['disable_heartbeat'] == 'disable_everywhere') {
+                $disable = true;
+            } elseif ($this->generals['disable_heartbeat'] == 'only_allow_when_editing') {
+                global $pagenow;
+                if ($pagenow != 'post.php' && $pagenow != 'post-new.php') {
+                    $disable = true;
+                }
+            }
+
+            if ($disable) {
+                wp_deregister_script('heartbeat');
+            }
+        }
+    }
+
+    public function heartbeat_frequency($settings) {
+        if (is_string($this->generals['heartbeat_frequency']) && $this->generals['heartbeat_frequency'] != 'default') {
+            $frequency = $this->generals['heartbeat_frequency'];
+            $split_arr = explode('_', $frequency);
+            $settings['interval'] = isset($split_arr[1]) ? $split_arr[1] : 60;
+            $settings['minimalInterval'] = isset($split_arr[1]) ? $split_arr[1] : 60;
+        }
+        return $settings;
+    }
+
+    public function limit_post_revisions() {
+        if (is_string($this->generals['limit_post_revisions']) && !empty($this->generals['limit_post_revisions'])) {
+            $revision = $this->generals['limit_post_revisions'];
+            if($revision == 'disable') {
+                $split_arr = ['', false];
+            }else {
+                $split_arr = explode('_', $revision);
+            }
+            if (defined('WP_POST_REVISIONS')) {
+                add_action('admin_notices', function () {
+                    echo "<div class='notice notice-error'>";
+                    echo "<p>";
+                    echo "<strong>" . __('Optimator Warning', 'optimator') . ":</strong> ";
+                    echo __('WP_POST_REVISIONS is already enabled somewhere else on your site. We suggest only enabling this feature in one place.', 'optimator');
+                    echo "</p>";
+                    echo "</div>";
+                });
+            } else {
+                define('WP_POST_REVISIONS', isset($split_arr[1]) ? $split_arr[1] : true);
+            }
+        }
+    }
+
+    public function autosave_interval() {
+        if (is_string($this->generals['autosave_interval']) && !empty($this->generals['autosave_interval'])) {
+            $revision = $this->generals['autosave_interval'];
+            $split_arr = explode('_', $revision);
+            if (defined('AUTOSAVE_INTERVAL')) {
+                add_action('admin_notices', function () {
+                    echo "<div class='notice notice-error'>";
+                    echo "<p>";
+                    echo "<strong>" . __('Optimator Warning', 'optimator') . ":</strong> ";
+                    echo __('AUTOSAVE_INTERVAL is already enabled somewhere else on your site. We suggest only enabling this feature in one place.', 'optimator');
+                    echo "</p>";
+                    echo "</div>";
+                });
+            } else {
+                define('AUTOSAVE_INTERVAL', isset($split_arr[1]) ? $split_arr[1] : 1);
             }
         }
     }

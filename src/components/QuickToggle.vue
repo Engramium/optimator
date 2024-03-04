@@ -130,10 +130,14 @@ const quickToggles = {
       helpUrl: "#",
       helpText: "Heartbeat frequency",
       options: {
-        seconds_15: "15 Seconds (Default)",
+        seconds_15: "15 Seconds",
         seconds_30: "30 Seconds",
         seconds_45: "45 Seconds",
-        seconds_60: "60 Seconds",
+        seconds_60: "60 Seconds (Default)",
+        seconds_120: "2 Minutes",
+        seconds_180: "3 Minutes",
+        seconds_240: "4 Seconds",
+        seconds_300: "5 Minutes",
       },
     },
     limit_post_revisions: {

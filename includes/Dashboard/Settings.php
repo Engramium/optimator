@@ -44,7 +44,7 @@ class Settings {
                     'disable_google_fonts' => false,
                     'disable_global_styles' => false,
                     'disable_heartbeat' => 'default',
-                    'heartbeat_frequency' => 'seconds_15',
+                    'heartbeat_frequency' => 'seconds_60',
                     'limit_post_revisions' => 'default',
                     'autosave_interval' => 'minutes_1',
                 ],
