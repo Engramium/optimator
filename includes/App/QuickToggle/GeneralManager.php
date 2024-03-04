@@ -34,6 +34,7 @@ class GeneralManager {
         add_action('template_redirect', [$this, 'disable_rss_feeds'], 1);
         $this->remove_rss_feed_links();
         add_action('pre_ping', [$this, 'disable_self_pingbacks']);
+        add_filter('rest_authentication_errors', [$this, 'disable_rest_api'], 20);
     }
 
     public function disable_emojis() {
@@ -214,5 +215,37 @@ class GeneralManager {
                 }
             }
         }
+    }
+
+    public function disable_rest_api($result) {
+        if (!empty($result)) {
+            return $result;
+        } else {
+            $disabled = false;
+            $rest_route = $GLOBALS['wp']->query_vars['rest_route'];
+
+            $exceptions = apply_filters('optimator_rest_api_exceptions', [
+                'optimator',
+                'contact-form-7',
+                'wordfence',
+                'elementor'
+            ]);
+
+            foreach ($exceptions as $exception) {
+                if (strpos($rest_route, $exception) !== false) {
+                    return;
+                }
+            }
+
+            if (is_string($this->generals['disable_rest_api']) && $this->generals['disable_rest_api'] == 'disable_for_non_admins' && !current_user_can('manage_options')) {
+                $disabled = true;
+            } else if (is_string($this->generals['disable_rest_api']) && $this->generals['disable_rest_api'] == 'disable_when_logged_out' && !is_user_logged_in()) {
+                $disabled = true;
+            }
+        }
+        if ($disabled) {
+            return new \WP_Error('rest_authentication_error', __('Sorry, you do not have permission to make REST API requests.', 'optimator'), array('status' => 401));
+        }
+        return $result;
     }
 }
