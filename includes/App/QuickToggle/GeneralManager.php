@@ -38,6 +38,8 @@ class GeneralManager {
         add_filter('rest_authentication_errors', [$this, 'disable_rest_api'], 20);
         $this->remove_rest_api_links();
         add_action('wp_print_scripts', [$this, 'disable_password_strength_meter'], 100);
+        $this->disable_comments();
+        $this->disable_comments_url();
         add_action('wp_head', [$this, 'add_blank_favicon']);
         $this->disable_global_styles();
         add_action('init', [$this, 'disable_heartbeat'], 1);
@@ -322,7 +324,141 @@ class GeneralManager {
         }
     }
 
-    // TODO: Need to work for comments disable
+    public function disable_comments() {
+        if (is_bool($this->generals['disable_comments']) && $this->generals['disable_comments']) {
+            //Disable Built-in Recent Comments Widget
+            add_action('widgets_init', [$this, 'disable_recent_comments_widget']);
+
+            //Check for XML-RPC
+            if (empty($this->generals['disable_xml_rpc'])) {
+                add_filter('wp_headers', [$this, 'remove_x_pingback']);
+            }
+
+            //Check for Feed Links
+            if (empty($this->generals['remove_rss_feed_links'])) {
+                remove_action('wp_head', 'feed_links_extra', 3);
+            }
+
+            //Disable Comment Feed Requests
+            add_action('template_redirect', [$this, 'disable_recent_comments_widget'], 9);
+
+            //Remove Comment Links from the Admin Bar
+            add_action('template_redirect', [$this, 'disable_recent_comments_widget']);
+            add_action('admin_init', [$this, 'remove_admin_bar_comment_links']);
+
+            //Finish Disabling Comments
+            add_action('wp_loaded', [$this, 'wp_loaded_disable_comments']);
+        }
+    }
+
+    public function disable_recent_comments_widget() {
+        unregister_widget('WP_Widget_Recent_Comments');
+        add_filter('show_recent_comments_widget_style', '__return_false');
+    }
+
+    public function disable_comment_feed_requests() {
+        if (is_comment_feed()) {
+            wp_die(__('Comments are disabled.', 'optimator'), '', array('response' => 403));
+        }
+    }
+
+    public function remove_admin_bar_comment_links() {
+        if (is_admin_bar_showing()) {
+            remove_action('admin_bar_menu', 'wp_admin_bar_comments_menu', 60);
+            if (is_multisite()) {
+                add_action('admin_bar_menu', 'admin_menu_remove_comments', 500);
+            }
+        }
+    }
+
+    public function admin_menu_remove_comments() {
+
+        global $pagenow;
+
+        remove_menu_page('edit-comments.php');
+        remove_submenu_page('options-general.php', 'options-discussion.php');
+
+        if ($pagenow == 'comment.php' || $pagenow == 'edit-comments.php') {
+            wp_die(__('Comments are disabled.', 'optimator'), '', array('response' => 403));
+        }
+
+        if ($pagenow == 'options-discussion.php') {
+            wp_die(__('Comments are disabled.', 'optimator'), '', array('response' => 403));
+        }
+    }
+
+    public function wp_loaded_disable_comments() {
+
+        $post_types = get_post_types(array('public' => true), 'names');
+        if (!empty($post_types)) {
+            foreach ($post_types as $post_type) {
+                if (post_type_supports($post_type, 'comments')) {
+                    remove_post_type_support($post_type, 'comments');
+                    remove_post_type_support($post_type, 'trackbacks');
+                }
+            }
+        }
+
+        add_filter('comments_array', function () {
+            return array();
+        }, 20, 2);
+        add_filter('comments_open', function () {
+            return false;
+        }, 20, 2);
+        add_filter('pings_open', function () {
+            return false;
+        }, 20, 2);
+
+        if (is_admin()) {
+
+            add_action('admin_menu', [$this, 'admin_menu_remove_comments'], PHP_INT_MAX);
+
+            add_action('admin_print_styles-index.php', function () {
+                echo "<style>
+                    #dashboard_right_now .comment-count, #dashboard_right_now .comment-mod-count, #latest-comments, #welcome-panel .welcome-comments {
+                        display: none !important;
+                    }
+                </style>";
+            });
+
+            add_action('admin_print_styles-profile.php', function () {
+                echo "<style>
+                    .user-comment-shortcuts-wrap {
+                        display: none !important;
+                    }
+                </style>";
+            });
+
+            add_action('wp_dashboard_setup', function () {
+                remove_meta_box('dashboard_recent_comments', 'dashboard', 'normal');
+            });
+
+            add_filter('pre_option_default_pingback_flag', '__return_zero');
+        } else {
+            add_filter('comments_template', function () {
+                return dirname(__FILE__) . '/blank-template.php';
+            }, 20);
+
+            wp_deregister_script('comment-reply');
+
+            add_filter('feed_links_show_comments_feed', '__return_false');
+        }
+    }
+
+    public function disable_comments_url() {
+        if (is_bool($this->generals['disable_comments_url']) && $this->generals['disable_comments_url']) {
+            add_filter('get_comment_author_link', function ($return, $author, $comment_ID) {
+                return $author;
+            }, 10, 3);
+            add_filter('get_comment_author_url', function () {
+                return false;
+            });
+            add_filter('comment_form_default_fields', function ($fields) {
+                unset($fields['url']);
+                return $fields;
+            }, PHP_INT_MAX);
+        }
+    }
 
     public function add_blank_favicon() {
         if (is_bool($this->generals['add_blank_favicon']) && $this->generals['add_blank_favicon']) {

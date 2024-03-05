@@ -189,6 +189,11 @@ const quickToggles = {
       helpUrl: "#",
       helpText: "Disable Medium",
     },
+    disable_medium_large: {
+      title: "Disable Medium Large",
+      helpUrl: "#",
+      helpText: "Disable Medium Large",
+    },
     disable_large: {
       title: "Disable Large",
       helpUrl: "#",
@@ -222,9 +227,9 @@ const toggleAll = (action, feature) => {
       if ("disable_rest_api" == key) {
         item = "default";
       } else if ("disable_heartbeat" == key) {
-        item = "seconds_60";
+        item = "default";
       } else if ("heartbeat_frequency" == key) {
-        item = "seconds_15";
+        item = "seconds_60";
       } else if ("limit_post_revisions" == key) {
         item = "default";
       } else if ("autosave_interval" == key) {

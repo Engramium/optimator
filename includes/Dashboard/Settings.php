@@ -51,6 +51,7 @@ class Settings {
                 'medias' => [
                     'disable_thumbnail' => false,
                     'disable_medium' => false,
+                    'disable_medium_large' => false,
                     'disable_large' => false,
                 ],
             ];
