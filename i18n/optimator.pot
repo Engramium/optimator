@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-03-06T18:41:36+00:00\n"
+"POT-Creation-Date: 2024-03-06T19:18:08+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: optimator\n"
@@ -82,6 +82,250 @@ msgstr ""
 
 #: dist/assets/index.js:25
 msgid "Coming Soon..."
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable Emojis"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable Embeds"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable Dashicons"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable XML-RPC"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Remove jQuery Migrate"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Hide WP Version"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Remove wlwmanifest link"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Remove RSD link"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Remove Shortlink"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable RSS feeds"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Remove RSS feed links"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable Self Pingbacks"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable REST API"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Default (Enabled)"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable for non-admins"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable when logged out"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Remove REST API links"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable Google Maps"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable Password Strength Meter"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable Comments"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable Comments URL"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Add Blank Favicon"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable Global Styles"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable Heartbeat"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable Everywhere"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Only allow when editing"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Heartbeat Frequency"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "15 Seconds"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "30 Seconds"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "45 Seconds"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "60 Seconds (Default)"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "2 Minutes"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "3 Minutes"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "4 Minutes"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "5 Minutes"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Limit Post Revisions"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable Post Revisions"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "1 Revision"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "2 Revisions"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "3 Revisions"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "4 Revisions"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "5 Revisions"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "10 Revisions"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "15 Revisions"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "20 Revisions"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "25 Revisions"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "30 Revisions"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Autosave Interval"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable Autosave Interval"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "1 Minute (Default)"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "10 Minutes"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "15 Minutes"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "20 Minutes"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "25 Minutes"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "30 Minutes"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable Thumbnail"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable Medium"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable Medium Large"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable Large"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable 1536x1536"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable 2048x2048"
 msgstr ""
 
 #: dist/assets/index.js:25

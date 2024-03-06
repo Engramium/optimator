@@ -74,7 +74,7 @@ class Settings {
                 'disable_comments' => false,
                 'disable_comments_url' => false,
                 'add_blank_favicon' => false,
-                'disable_google_fonts' => false,
+                // 'disable_google_fonts' => false,
                 'disable_global_styles' => false,
                 'disable_heartbeat' => 'default',
                 'heartbeat_frequency' => 'seconds_60',
