@@ -8,7 +8,7 @@ const emits = defineEmits(["update:modelValue", "updateToggle"]);
 
 const toggleFeature = (event, content) => {
   emits("update:modelValue", event);
-  emits("updateToggle", {feature: content.title, status: event});
+  emits("updateToggle", {feature: content, status: event});
 };
 </script>
 

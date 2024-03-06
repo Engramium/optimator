@@ -199,11 +199,21 @@ const quickToggles = {
       helpUrl: "#",
       helpText: "Disable Large",
     },
+    disable_1536: {
+      title: "Disable 1536x1536",
+      helpUrl: "#",
+      helpText: "Disable 1536x1536",
+    },
+    disable_2048: {
+      title: "Disable 2048x2048",
+      helpUrl: "#",
+      helpText: "Disable 2048x2048",
+    },
   },
 };
 
 const toggleAll = (action, feature) => {
-  if ("active" == action) {
+  if ("activate" == action) {
     Object.keys(data.quickToggles[feature]).forEach((key) => {
       let item = false;
       if ("disable_rest_api" == key) {
@@ -241,7 +251,10 @@ const toggleAll = (action, feature) => {
     });
   }
 
-  updateToggle({feature: `All ${fn.titleCase(feature)}`, status: ("active" == action)});
+  updateToggle({
+    feature: { title: `All ${fn.titleCase(feature)}` },
+    status: !("activate" == action),
+  });
 };
 
 const updateToggle = (content) => {
@@ -252,7 +265,14 @@ const updateToggle = (content) => {
     nonce: optimator.nonce,
   });
 
-  let msg = `${content.feature}: ${content.status? 'Enabled': 'Disabled'}`
+  let status = "";
+  if (content.status == false || content.status == true) {
+    status = content.status ? "Enabled" : "Disabled";
+  } else {
+    status = content.feature.options[content.status];
+  }
+
+  let msg = `${content.feature.title}: ${status}`;
 
   res.then((response) => {
     if (response.status) {
@@ -282,12 +302,16 @@ const updateToggle = (content) => {
         }}</el-text>
         <el-divider />
         <div class="btn-wrap">
-          <el-button @click="toggleAll('active', 'generals')" type="success">{{
-            __("Active All", "optimator")
-          }}</el-button>
-          <el-button @click="toggleAll('deactive', 'generals')" type="danger">{{
-            __("Deactive All", "optimator")
-          }}</el-button>
+          <el-button
+            @click="toggleAll('activate', 'generals')"
+            type="success"
+            >{{ __("Activate All", "optimator") }}</el-button
+          >
+          <el-button
+            @click="toggleAll('deactivate', 'generals')"
+            type="danger"
+            >{{ __("Deactivate All", "optimator") }}</el-button
+          >
         </div>
       </div>
       <div class="feature-content">
@@ -313,11 +337,11 @@ const updateToggle = (content) => {
         }}</el-text>
         <el-divider />
         <div class="btn-wrap">
-          <el-button @click="toggleAll('active', 'medias')" type="success">{{
-            __("Active All", "optimator")
+          <el-button @click="toggleAll('activate', 'medias')" type="success">{{
+            __("Activate All", "optimator")
           }}</el-button>
-          <el-button @click="toggleAll('deactive', 'medias')" type="danger">{{
-            __("Deactive All", "optimator")
+          <el-button @click="toggleAll('deactivate', 'medias')" type="danger">{{
+            __("Deactivate All", "optimator")
           }}</el-button>
         </div>
       </div>
@@ -329,6 +353,7 @@ const updateToggle = (content) => {
             class="grid-item"
           >
             <Toggle
+              @update-toggle="updateToggle"
               :content="media"
               v-model="data.quickToggles.medias[index]"
             />

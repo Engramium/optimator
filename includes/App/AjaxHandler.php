@@ -45,9 +45,10 @@ class AjaxHandler {
         unset($request['action']);
         unset($request['nonce']);
         $status = Settings::instance()->update_quick_toggles($request);
+        $msg = $status ? 'Quick Toggle updated.' : 'Quick Toggle nothing to update/ failed.';
         wp_send_json([
             'status' => $status,
-            'msg' => 'Quick Toggle Updated.',
+            'msg' => $msg,
             'data' => $request,
         ]);
     }

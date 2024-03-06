@@ -86,6 +86,8 @@ class Settings {
                 'disable_medium' => false,
                 'disable_medium_large' => false,
                 'disable_large' => false,
+                'disable_1536' => false,
+                'disable_2048' => false,
             ],
         ];
     }
