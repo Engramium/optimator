@@ -27,3 +27,4 @@ dist
 composer.lock
 vendor
 .env
+optimator*.zip

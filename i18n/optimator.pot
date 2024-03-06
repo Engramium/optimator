@@ -9,45 +9,125 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-02-15T23:28:38+06:00\n"
+"POT-Creation-Date: 2024-03-06T17:30:57+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.6.0\n"
+"X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: optimator\n"
 
 #. Plugin Name of the plugin
+#: optimator.php
 #: includes/Dashboard/AdminMenu.php:42
 #: includes/Dashboard/AdminMenu.php:43
 msgid "Optimator"
 msgstr ""
 
 #. Plugin URI of the plugin
+#: optimator.php
 msgid "https://wordpress.org/plugins/optimator/"
 msgstr ""
 
 #. Description of the plugin
+#: optimator.php
 msgid "Simplify and streamline WordPress by removing unnecessary data and functionalities."
 msgstr ""
 
 #. Author of the plugin
+#: optimator.php
 msgid "Engramium"
 msgstr ""
 
 #. Author URI of the plugin
+#: optimator.php
 msgid "https://engramium.com"
+msgstr ""
+
+#: includes/App/QuickToggle/GeneralManager.php:265
+msgid "Sorry, you do not have permission to make REST API requests."
+msgstr ""
+
+#: includes/App/QuickToggle/GeneralManager.php:361
+#: includes/App/QuickToggle/GeneralManager.php:382
+#: includes/App/QuickToggle/GeneralManager.php:386
+msgid "Comments are disabled."
+msgstr ""
+
+#: includes/App/QuickToggle/GeneralManager.php:542
+#: includes/App/QuickToggle/GeneralManager.php:561
+msgid "Optimator Warning"
+msgstr ""
+
+#: includes/App/QuickToggle/GeneralManager.php:543
+msgid "WP_POST_REVISIONS is already enabled somewhere else on your site. We suggest only enabling this feature in one place."
+msgstr ""
+
+#: includes/App/QuickToggle/GeneralManager.php:562
+msgid "AUTOSAVE_INTERVAL is already enabled somewhere else on your site. We suggest only enabling this feature in one place."
 msgstr ""
 
 #: includes/Optimator.php:101
 msgid "Settings"
 msgstr ""
 
-#: dist/assets/index.js:17
-msgid "Welcome"
+#: dist/assets/index.js:25
+msgid "Introducing Optimator"
 msgstr ""
 
-#: dist/assets/index.js:17
+#: dist/assets/index.js:25
+msgid "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum dolor provident soluta ad omnis sit nostrum aperiam deleniti iste dolorum ducimus sunt nesciunt, illum perferendis quasi itaque amet deserunt similique?"
+msgstr ""
+
+#: dist/assets/index.js:25
 msgid "Quick Toggle"
 msgstr ""
 
-#: dist/assets/index.js:17
+#: dist/assets/index.js:25
+msgid "Coming Soon..."
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "General"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Active All"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Deactive All"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Media"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Welcome"
+msgstr ""
+
+#: dist/assets/index.js:25
 msgid "Optimize"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Upgrade"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "If you like optimator, Leave "
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid " rating"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "About"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Documentation"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Content"
 msgstr ""
