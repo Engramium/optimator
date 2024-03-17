@@ -8,24 +8,38 @@ const emits = defineEmits(["update:modelValue", "updateToggle"]);
 
 const toggleFeature = (event, content) => {
   emits("update:modelValue", event);
-  emits("updateToggle", {feature: content, status: event});
+  emits("updateToggle", { feature: content, status: event });
 };
 </script>
 
 <template>
   <div class="toggle-wrap">
     <div class="toggle-title">
-      <el-text tag="p" size="large">{{
-        content.title
-      }}</el-text>
+      <el-text tag="p" size="large">{{ content.title }}</el-text>
       <div class="help-icon">
-        <el-tooltip :content="content.helpText" raw-content>
-          <a class="help-icon" :href="content.helpUrl" target="_blank">
-            <el-icon class="pointer" :size="20" color="#777777">
+        <el-popover
+          placement="bottom"
+          :width="300"
+          trigger="hover"
+          effect="dark"
+          :content="content.helpText"
+        >
+          <template #reference>
+            <a
+              v-if="content.helpUrl != '#'"
+              class="help-icon"
+              :href="content.helpUrl"
+              target="_blank"
+            >
+              <el-icon class="pointer" :size="20" color="#777777">
+                <QuestionFilled />
+              </el-icon>
+            </a>
+            <el-icon v-else class="pointer" :size="20" color="#777777">
               <QuestionFilled />
             </el-icon>
-          </a>
-        </el-tooltip>
+          </template>
+        </el-popover>
       </div>
     </div>
 

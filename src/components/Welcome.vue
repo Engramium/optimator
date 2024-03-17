@@ -18,11 +18,11 @@ import { Right, StarFilled } from "@element-plus/icons-vue";
         </el-text>
         <iframe
           width="100%"
-          height="350"
-          src="https://www.youtube.com/embed/Jc1u3PtXL-0?si=KBidz0qwMeMSWswj"
+          height="380"
+          src="https://www.youtube-nocookie.com/embed/Jc1u3PtXL-0?showinfo=0&autoplay=1&mute=1&rel=0&privacy=1"
+          allow="autoplay"
           title="YouTube video player"
           frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
         ></iframe>
         <div class="btn-group">
@@ -32,7 +32,7 @@ import { Right, StarFilled } from "@element-plus/icons-vue";
             target="_blank"
             size="large"
             type="success"
-            >{{ __("Create New Page", "optimator") }}</el-button
+            >{{ __("Visit Our Website", "optimator") }}</el-button
           >
           <el-button
             tag="a"
@@ -153,12 +153,12 @@ a {
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-auto-rows: 180px;
+  grid-auto-rows: 200px;
   gap: 40px;
 
   .grid-item {
     @include card();
-    padding: 20px;
+    padding: 30px;
     gap: 30px;
 
     &:nth-child(1) {

@@ -8,67 +8,67 @@ const quickToggles = {
     disable_emojis: {
       title: wp.i18n.__("Disable Emojis", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Disable Emojis", "optimator"),
+      helpText: wp.i18n.__("Removes WordPress Emojis JavaScript file (wp-emoji-release.min.js)", "optimator"),
     },
     disable_embeds: {
       title: wp.i18n.__("Disable Embeds", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Disable Embeds", "optimator"),
+      helpText: wp.i18n.__("Remove WordPress Embed JavaScript file (wp-embed.min.js)", "optimator"),
     },
     disable_dashicons: {
       title: wp.i18n.__("Disable Dashicons", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Disable Dashicons", "optimator"),
+      helpText: wp.i18n.__("Disable Dashicon on the frontend when not logged-in", "optimator"),
     },
     disable_xml_rpc: {
       title: wp.i18n.__("Disable XML-RPC", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Disable XML-RPC", "optimator"),
+      helpText: wp.i18n.__("Disable WordPress XML-RPC functionality", "optimator"),
     },
     remove_jquery_migrate: {
       title: wp.i18n.__("Remove jQuery Migrate", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Remove jQuery Migrate", "optimator"),
+      helpText: wp.i18n.__("Remove JQuery Migrate JavaScript file ( JQuery-migrate.min.js )", "optimator"),
     },
     hide_wp_version: {
       title: wp.i18n.__("Hide WP Version", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Hide WP Version", "optimator"),
+      helpText: wp.i18n.__("Remove WordPress version Meta Tag", "optimator"),
     },
     remove_wlwmanifest_link: {
       title: wp.i18n.__("Remove wlwmanifest link", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Remove wlwmanifest link", "optimator"),
+      helpText: wp.i18n.__("Remove wlwmanifest ( Windows Live Writer ) link tag", "optimator"),
     },
     remove_rsd_link: {
       title: wp.i18n.__("Remove RSD link", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Remove RSD link", "optimator"),
+      helpText: wp.i18n.__("Remove RSD ( Real Simple Discovery ) link tag", "optimator"),
     },
     remove_shortlink: {
       title: wp.i18n.__("Remove Shortlink", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Remove Shortlink", "optimator"),
+      helpText: wp.i18n.__("Remove shortlink Link Tag", "optimator"),
     },
     disable_rss_feeds: {
       title: wp.i18n.__("Disable RSS feeds", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Disable RSS feeds", "optimator"),
+      helpText: wp.i18n.__("Disable WordPress generated RSS feeds and 301 redirect URL to parent", "optimator"),
     },
     remove_rss_feed_links: {
       title: wp.i18n.__("Remove RSS feed links", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Remove RSS feed links", "optimator"),
+      helpText: wp.i18n.__("Disable WordPress generated RSS feed link tags", "optimator"),
     },
     disable_self_pingbacks: {
       title: wp.i18n.__("Disable Self Pingbacks", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Disable Self Pingbacks", "optimator"),
+      helpText: wp.i18n.__("Disable Self Pingbacks ( Generated when linking to an article on your own blog )", "optimator"),
     },
     disable_rest_api: {
       title: wp.i18n.__("Disable REST API", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Disable REST API", "optimator"),
+      helpText: wp.i18n.__("Disables REST API requests and displays an error message if the requester doesn’t have permission", "optimator"),
       options: {
         default: wp.i18n.__("Default (Enabled)", "optimator"),
         disable_for_non_admins: wp.i18n.__("Disable for non-admins", "optimator"),
@@ -78,32 +78,32 @@ const quickToggles = {
     remove_rest_api_links: {
       title: wp.i18n.__("Remove REST API links", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Remove REST API links", "optimator"),
+      helpText: wp.i18n.__("Removes REST API link tag from the frontend and the REST API header link from page requests", "optimator"),
     },
     disable_google_maps: {
       title: wp.i18n.__("Disable Google Maps", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Disable Google Maps", "optimator"),
+      helpText: wp.i18n.__("Remove any instances of Google Maps being loaded across your entire site", "optimator"),
     },
     disable_password_strength_meter: {
       title: wp.i18n.__("Disable Password Strength Meter", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Disable Password Strength Meter", "optimator"),
+      helpText: wp.i18n.__("Removes WordPress and WooCommerce Password Strength Meter scripts from non-essential pages", "optimator"),
     },
     disable_comments: {
       title: wp.i18n.__("Disable Comments", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Disable Comments", "optimator"),
+      helpText: wp.i18n.__("Disable WordPress comments across your entire site", "optimator"),
     },
     disable_comments_url: {
       title: wp.i18n.__("Disable Comments URL", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Disable Comments URL", "optimator"),
+      helpText: wp.i18n.__("Removes the WordPress comment author link and website field from blog posts", "optimator"),
     },
     add_blank_favicon: {
       title: wp.i18n.__("Add Blank Favicon", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Add Blank Favicon", "optimator"),
+      helpText: wp.i18n.__("Adds a blank favicon to your WordPress header, which will prevent a missing favicon or 404 error. If you already have a favicon, you should leave this off", "optimator"),
     },
     // disable_google_fonts: {
     //   title: wp.i18n.__("Disable Google Fonts", "optimator"),
@@ -113,12 +113,12 @@ const quickToggles = {
     disable_global_styles: {
       title: wp.i18n.__("Disable Global Styles", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Disable Global Styles", "optimator"),
+      helpText: wp.i18n.__("Remove the inline global styles ( CSS and SVG code) related to duotone filters", "optimator"),
     },
     disable_heartbeat: {
       title: wp.i18n.__("Disable Heartbeat", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Disable Heartbeat", "optimator"),
+      helpText: wp.i18n.__("Disable WordPress HeartBeat everywhere or in certain areas ( used for auto-saving and revision tracking )", "optimator"),
       options: {
         default: wp.i18n.__("Default (Enabled)", "optimator"),
         disable_everywhere: wp.i18n.__("Disable Everywhere", "optimator"),
@@ -128,7 +128,7 @@ const quickToggles = {
     heartbeat_frequency: {
       title: wp.i18n.__("Heartbeat Frequency", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Heartbeat Frequency", "optimator"),
+      helpText: wp.i18n.__("Controls how often the WordPress HeartBeat API is allowed to run", "optimator"),
       options: {
         seconds_15: wp.i18n.__("15 Seconds", "optimator"),
         seconds_30: wp.i18n.__("30 Seconds", "optimator"),
@@ -143,7 +143,7 @@ const quickToggles = {
     limit_post_revisions: {
       title: wp.i18n.__("Limit Post Revisions", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Limit Post Revisions", "optimator"),
+      helpText: wp.i18n.__("Limits the maximum number of revisions allowed for posts and pages", "optimator"),
       options: {
         default: wp.i18n.__("Default (Enabled)", "optimator"),
         disable: wp.i18n.__("Disable Post Revisions", "optimator"),
@@ -162,7 +162,7 @@ const quickToggles = {
     autosave_interval: {
       title: wp.i18n.__("Autosave Interval", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Autosave Interval", "optimator"),
+      helpText: wp.i18n.__("Controls how often WordPress will auto-save posts and pages while editing", "optimator"),
       options: {
         disable: wp.i18n.__("Disable Autosave Interval", "optimator"),
         minutes_1: wp.i18n.__("1 Minute (Default)", "optimator"),
@@ -182,32 +182,32 @@ const quickToggles = {
     disable_thumbnail: {
       title: wp.i18n.__("Disable Thumbnail", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Disable Thumbnail", "optimator"),
+      helpText: wp.i18n.__("Prevent WordPress from generating thumbnail images", "optimator"),
     },
     disable_medium: {
       title: wp.i18n.__("Disable Medium", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Disable Medium", "optimator"),
+      helpText: wp.i18n.__("Prevent WordPress from generating medium images", "optimator"),
     },
     disable_medium_large: {
       title: wp.i18n.__("Disable Medium Large", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Disable Medium Large", "optimator"),
+      helpText: wp.i18n.__("Prevent WordPress from generating medium-large (768px) images", "optimator"),
     },
     disable_large: {
       title: wp.i18n.__("Disable Large", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Disable Large", "optimator"),
+      helpText: wp.i18n.__("Prevent WordPress from generating large images", "optimator"),
     },
     disable_1536: {
       title: wp.i18n.__("Disable 1536x1536", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Disable 1536x1536", "optimator"),
+      helpText: wp.i18n.__("Prevent WordPress from generating 1536x1536 images", "optimator"),
     },
     disable_2048: {
       title: wp.i18n.__("Disable 2048x2048", "optimator"),
       helpUrl: "#",
-      helpText: wp.i18n.__("Disable 2048x2048", "optimator"),
+      helpText: wp.i18n.__("Prevent WordPress from generating 2048x2048 images", "optimator"),
     },
   },
 };
