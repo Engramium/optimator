@@ -297,7 +297,7 @@ const updateToggle = (content) => {
   <div v-if="data.quickToggles != null" class="quick-toggle-wrap">
     <div class="feature-wrap">
       <div class="feature-header">
-        <el-text class="mx-1" tag="p" size="large">{{
+        <el-text tag="p" size="large">{{
           __("General", "optimator")
         }}</el-text>
         <el-divider />
@@ -332,7 +332,7 @@ const updateToggle = (content) => {
     </div>
     <div class="feature-wrap">
       <div class="feature-header">
-        <el-text class="mx-1" tag="p" size="large">{{
+        <el-text tag="p" size="large">{{
           __("Media", "optimator")
         }}</el-text>
         <el-divider />

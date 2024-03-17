@@ -1,55 +1,144 @@
 <script setup>
+import { Right, StarFilled } from "@element-plus/icons-vue";
 </script>
 <template>
   <div class="welcome-wrap">
     <div class="grid">
       <div class="grid-item">
-        <h2>
-          <el-text class="mx-1" size="large">{{ __('Introducing Optimator', 'optimator') }}</el-text>
-        </h2>
-        <p>
-          <el-text class="mx-1"
-            > {{ __('Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum dolor provident soluta ad omnis sit nostrum aperiam deleniti iste dolorum ducimus sunt nesciunt, illum perferendis quasi itaque amet deserunt similique?', 'optimator') }} </el-text
-          >
-        </p>
+        <el-text style="align-self: flex-start" tag="h2" size="large">{{
+          __("Introducing Optimator", "optimator")
+        }}</el-text>
+        <el-text tag="p">
+          {{
+            __(
+              "Fast-loading websites improves the user experience, increases the website views, and can even help with WordPress SEO. Introducing Optimator, the most useful WordPress speed optimization plugin to boost WordPress performance and speed up your website.",
+              "optimator"
+            )
+          }}
+        </el-text>
         <iframe
           width="100%"
-          height="400"
-          src="https://www.youtube.com/embed/M7lc1UVf-VE?si=msqzIdSl0SZ3dmU-"
+          height="350"
+          src="https://www.youtube.com/embed/Jc1u3PtXL-0?si=KBidz0qwMeMSWswj"
           title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
         ></iframe>
-      </div>
-      <div class="grid-item">
-        <div v-for="o in 3" :key="o" class="text item">
-          {{ "List item " + o }}
+        <div class="btn-group">
+          <el-button
+            tag="a"
+            href="https://www.engramium.com/"
+            target="_blank"
+            size="large"
+            type="success"
+            >{{ __("Create New Page", "optimator") }}</el-button
+          >
+          <el-button
+            tag="a"
+            href="https://www.engramium.com/"
+            target="_blank"
+            size="large"
+            >{{ __("Visit Our Website", "optimator") }}</el-button
+          >
         </div>
       </div>
       <div class="grid-item">
-        <div v-for="o in 3" :key="o" class="text item">
-          {{ "List item " + o }}
-        </div>
+        <el-text style="align-self: flex-start" tag="h2" size="large">{{
+          __("Join the Community", "optimator")
+        }}</el-text>
+        <el-text tag="p" style="align-self: flex-start">
+          {{
+            __(
+              "Do you have a question about the plugin or what to share about your feedback? Join our growing community!",
+              "optimator"
+            )
+          }}
+        </el-text>
+        <el-link
+          tag="a"
+          href="https://www.facebook.com/groups/engramium/"
+          target="_blank"
+          size="large"
+          type="success"
+        >
+          {{ __("Join Now", "optimator")
+          }}<el-icon class="el-icon--right"><Right /></el-icon>
+        </el-link>
       </div>
       <div class="grid-item">
-        <div v-for="o in 3" :key="o" class="text item">
-          {{ "List item " + o }}
-        </div>
+        <el-text style="align-self: flex-start" tag="h2" size="large">{{
+          __("Knowledge Base", "optimator")
+        }}</el-text>
+        <el-text style="align-self: flex-start" tag="p">
+          {{
+            __(
+              "Watch our Optimator Basic & Fundamental Video tutorials and more.",
+              "optimator"
+            )
+          }}
+        </el-text>
+        <el-link
+          tag="a"
+          href="https://www.youtube.com/engramium"
+          target="_blank"
+          size="large"
+          type="success"
+        >
+          {{ __("Watch Now", "optimator")
+          }}<el-icon class="el-icon--right"><Right /></el-icon>
+        </el-link>
+      </div>
+      <div class="grid-item">
+        <el-text style="align-self: flex-start" tag="h2" size="large"
+          >{{ __("Enjoyed Optimator?", "optimator") }}
+        </el-text>
+        <el-text style="align-self: flex-start" tag="p">
+          {{
+            __(
+              "We love to hear from you, we would appreciate every single review.",
+              "optimator"
+            )
+          }}
+        </el-text>
+        <el-link
+          tag="a"
+          href="https://wordpress.org/support/plugin/optimator/reviews/?filter=5"
+          target="_blank"
+          size="large"
+          type="success"
+        >
+          {{ __("Rate Us Here", "optimator") }}
+          <el-icon class="el-icon--right"><StarFilled /></el-icon>
+          <el-icon><StarFilled /></el-icon>
+          <el-icon><StarFilled /></el-icon>
+          <el-icon><StarFilled /></el-icon>
+          <el-icon><StarFilled /></el-icon>
+        </el-link>
       </div>
       <div class="grid-item">
         <div class="quick-toggle">
           <el-switch disabled size="large" />
-          <h2><el-text class="mx-1" size="large">{{ __('Quick Toggle', 'optimator') }}</el-text></h2>
+          <h2>
+            <el-text size="large">{{
+              __("Quick Toggle", "optimator")
+            }}</el-text>
+          </h2>
         </div>
         <p>
-          <el-text class="mx-1">{{ __('Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum dolor provident soluta ad omnis sit nostrum aperiam deleniti iste dolorum ducimus sunt nesciunt, illum perferendis quasi itaque amet deserunt similique?', 'optimator') }}</el-text
-          >
+          <el-text>{{
+            __(
+              "Many of the Optimator's options can be applied by simply toggling them on.",
+              "optimator"
+            )
+          }}</el-text>
         </p>
       </div>
       <div class="grid-item">
         <h2>
-          <el-text class="mx-1" size="large">{{ __('Coming Soon...', 'optimator') }}</el-text>
+          <el-text size="large">{{
+            __("Coming Soon...", "optimator")
+          }}</el-text>
         </h2>
       </div>
     </div>
@@ -58,6 +147,9 @@
 <style scoped lang="scss">
 @import "../scss/_variables";
 @import "../scss/_mixins";
+a {
+  text-decoration: none;
+}
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

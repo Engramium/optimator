@@ -15,7 +15,7 @@ const toggleFeature = (event, content) => {
 <template>
   <div class="toggle-wrap">
     <div class="toggle-title">
-      <el-text el-text class="mx-1" tag="p" size="large">{{
+      <el-text tag="p" size="large">{{
         content.title
       }}</el-text>
       <div class="help-icon">
