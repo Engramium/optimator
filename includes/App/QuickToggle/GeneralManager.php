@@ -49,7 +49,7 @@ class GeneralManager {
     }
 
     public function disable_emojis() {
-        if (is_bool($this->generals['disable_emojis']) && $this->generals['disable_emojis']) {
+        if ((!empty($this->generals['disable_emojis'])) && (true === $this->generals['disable_emojis'])) {
             remove_action('wp_head', 'print_emoji_detection_script', 7);
             remove_action('admin_print_scripts', 'print_emoji_detection_script');
             remove_action('wp_print_styles', 'print_emoji_styles');
@@ -71,7 +71,7 @@ class GeneralManager {
     }
 
     public function disable_embeds() {
-        if (is_bool($this->generals['disable_emojis']) && $this->generals['disable_emojis']) {
+        if ((!empty($this->generals['disable_emojis'])) && (true === $this->generals['disable_emojis'])) {
             global $wp;
             $wp->public_query_vars = array_diff($wp->public_query_vars, array('embed'));
             add_filter('embed_oembed_discover', '__return_false');
@@ -98,10 +98,10 @@ class GeneralManager {
     }
 
     public function modify_scripts_registration() {
-        if (is_bool($this->generals['disable_dashicons']) && $this->generals['disable_dashicons']) {
+        if ((!empty($this->generals['disable_dashicons'])) && (true === $this->generals['disable_dashicons'])) {
             $this->disable_dashicons();
         }
-        if (is_bool($this->generals['disable_google_maps']) && $this->generals['disable_google_maps']) {
+        if ((!empty($this->generals['disable_google_maps'])) && (true === $this->generals['disable_google_maps'])) {
             $this->disable_google_maps();
         }
     }
@@ -114,7 +114,7 @@ class GeneralManager {
     }
 
     public function disable_xml_rpc() {
-        if (is_bool($this->generals['disable_xml_rpc']) && $this->generals['disable_xml_rpc']) {
+        if ((!empty($this->generals['disable_xml_rpc'])) && (true === $this->generals['disable_xml_rpc'])) {
             add_filter('xmlrpc_enabled', '__return_false');
             add_filter('wp_headers', [$this, 'remove_x_pingback']);
             add_filter('pings_open', '__return_false', 9999);
@@ -164,7 +164,7 @@ class GeneralManager {
     }
 
     public function hide_wp_version() {
-        if (is_bool($this->generals['hide_wp_version']) && $this->generals['hide_wp_version']) {
+        if ((!empty($this->generals['hide_wp_version'])) && (true === $this->generals['hide_wp_version'])) {
             remove_action('wp_head', 'wp_generator');
             add_filter('the_generator', [$this, 'optimator_hide_wp_version']);
         }
@@ -175,26 +175,26 @@ class GeneralManager {
     }
 
     public function remove_wlwmanifest_link() {
-        if (is_bool($this->generals['remove_wlwmanifest_link']) && $this->generals['remove_wlwmanifest_link']) {
+        if ((!empty($this->generals['remove_wlwmanifest_link'])) && (true === $this->generals['remove_wlwmanifest_link'])) {
             remove_action('wp_head', 'wlwmanifest_link');
         }
     }
 
     public function remove_rsd_link() {
-        if (is_bool($this->generals['remove_rsd_link']) && $this->generals['remove_rsd_link']) {
+        if ((!empty($this->generals['remove_rsd_link'])) && (true === $this->generals['remove_rsd_link'])) {
             remove_action('wp_head', 'rsd_link');
         }
     }
 
     public function remove_shortlink() {
-        if (is_bool($this->generals['remove_shortlink']) && $this->generals['remove_shortlink']) {
+        if ((!empty($this->generals['remove_shortlink'])) && (true === $this->generals['remove_shortlink'])) {
             remove_action('wp_head', 'wp_shortlink_wp_head');
             remove_action('template_redirect', 'wp_shortlink_header', 11, 0);
         }
     }
 
     public function disable_rss_feeds() {
-        if (is_bool($this->generals['disable_rss_feeds']) && $this->generals['disable_rss_feeds']) {
+        if ((!empty($this->generals['disable_rss_feeds'])) && (true === $this->generals['disable_rss_feeds'])) {
             if (!is_feed() || is_404()) {
                 return;
             }
@@ -218,14 +218,14 @@ class GeneralManager {
     }
 
     public function remove_rss_feed_links() {
-        if (is_bool($this->generals['remove_rss_feed_links']) && $this->generals['remove_rss_feed_links']) {
+        if ((!empty($this->generals['remove_rss_feed_links'])) && (true === $this->generals['remove_rss_feed_links'])) {
             remove_action('wp_head', 'feed_links', 2);
             remove_action('wp_head', 'feed_links_extra', 3);
         }
     }
 
     public function disable_self_pingbacks(&$links) {
-        if (is_bool($this->generals['disable_self_pingbacks']) && $this->generals['disable_self_pingbacks']) {
+        if ((!empty($this->generals['disable_self_pingbacks'])) && (true === $this->generals['disable_self_pingbacks'])) {
             $home = get_option('home');
             foreach ($links as $l => $link) {
                 if (strpos($link, $home) === 0) {
@@ -255,9 +255,9 @@ class GeneralManager {
                 }
             }
 
-            if (is_string($this->generals['disable_rest_api']) && $this->generals['disable_rest_api'] == 'disable_for_non_admins' && !current_user_can('manage_options')) {
+            if ((!empty($this->generals['disable_rest_api'])) && ('disable_for_non_admins' === $this->generals['disable_rest_api']) && (!current_user_can('manage_options'))) {
                 $disabled = true;
-            } else if (is_string($this->generals['disable_rest_api']) && $this->generals['disable_rest_api'] == 'disable_when_logged_out' && !is_user_logged_in()) {
+            } else if ((!empty($this->generals['disable_rest_api'])) && ('disable_when_logged_out' === $this->generals['disable_rest_api']) && (!is_user_logged_in())) {
                 $disabled = true;
             }
         }
@@ -268,7 +268,7 @@ class GeneralManager {
     }
 
     public function remove_rest_api_links() {
-        if (is_bool($this->generals['remove_rest_api_links']) && $this->generals['remove_rest_api_links']) {
+        if ((!empty($this->generals['remove_rest_api_links'])) && (true === $this->generals['remove_rest_api_links'])) {
             remove_action('xmlrpc_rsd_apis', 'rest_output_rsd');
             remove_action('wp_head', 'rest_output_link_wp_head');
             remove_action('template_redirect', 'rest_output_link_header', 11, 0);
@@ -300,7 +300,7 @@ class GeneralManager {
     }
 
     public function disable_password_strength_meter() {
-        if (is_bool($this->generals['disable_password_strength_meter']) && $this->generals['disable_password_strength_meter']) {
+        if ((!empty($this->generals['disable_password_strength_meter'])) && (true === $this->generals['disable_password_strength_meter'])) {
             if (is_admin()) {
                 return;
             }
@@ -325,7 +325,7 @@ class GeneralManager {
     }
 
     public function disable_comments() {
-        if (is_bool($this->generals['disable_comments']) && $this->generals['disable_comments']) {
+        if ((!empty($this->generals['disable_comments'])) && (true === $this->generals['disable_comments'])) {
             //Disable Built-in Recent Comments Widget
             add_action('widgets_init', [$this, 'disable_recent_comments_widget']);
 
@@ -446,7 +446,7 @@ class GeneralManager {
     }
 
     public function disable_comments_url() {
-        if (is_bool($this->generals['disable_comments_url']) && $this->generals['disable_comments_url']) {
+        if ((!empty($this->generals['disable_comments_url'])) && (true === $this->generals['disable_comments_url'])) {
             add_filter('get_comment_author_link', function ($return, $author, $comment_ID) {
                 return $author;
             }, 10, 3);
@@ -461,13 +461,13 @@ class GeneralManager {
     }
 
     public function add_blank_favicon() {
-        if (is_bool($this->generals['add_blank_favicon']) && $this->generals['add_blank_favicon']) {
+        if ((!empty($this->generals['add_blank_favicon'])) && (true === $this->generals['add_blank_favicon'])) {
             echo '<link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon" />';
         }
     }
 
     public function disable_global_styles() {
-        if (is_bool($this->generals['disable_global_styles']) && $this->generals['disable_global_styles']) {
+        if ((!empty($this->generals['disable_global_styles'])) && (true === $this->generals['disable_global_styles'])) {
             add_action('after_setup_theme', function () {
                 remove_action('wp_enqueue_scripts', 'wp_enqueue_global_styles');
                 remove_action('wp_footer', 'wp_enqueue_global_styles', 1);
@@ -478,7 +478,7 @@ class GeneralManager {
     }
 
     public function disable_heartbeat() {
-        if (is_string($this->generals['disable_heartbeat']) && $this->generals['disable_heartbeat'] != 'default') {
+        if ((!empty($this->generals['disable_heartbeat'])) && ('default' !== $this->generals['disable_heartbeat'])) {
             if (is_admin()) {
                 global $pagenow;
                 if (!empty($pagenow)) {
@@ -518,7 +518,7 @@ class GeneralManager {
     }
 
     public function heartbeat_frequency($settings) {
-        if (is_string($this->generals['heartbeat_frequency']) && $this->generals['heartbeat_frequency'] != 'default') {
+        if ((!empty($this->generals['heartbeat_frequency'])) && ('default' !== $this->generals['heartbeat_frequency'])) {
             $frequency = $this->generals['heartbeat_frequency'];
             $split_arr = explode('_', $frequency);
             $settings['interval'] = isset($split_arr[1]) ? $split_arr[1] : 60;
@@ -528,7 +528,7 @@ class GeneralManager {
     }
 
     public function limit_post_revisions() {
-        if (is_string($this->generals['limit_post_revisions']) && $this->generals['limit_post_revisions'] != 'default') {
+        if ((!empty($this->generals['limit_post_revisions'])) && ('default' !== $this->generals['limit_post_revisions'])) {
             $revision = $this->generals['limit_post_revisions'];
             if ($revision == 'disable') {
                 $split_arr = ['', false];
@@ -551,7 +551,7 @@ class GeneralManager {
     }
 
     public function autosave_interval() {
-        if (is_string($this->generals['autosave_interval']) && !empty($this->generals['autosave_interval'])) {
+        if (!empty($this->generals['autosave_interval']) && is_string($this->generals['autosave_interval'])) {
             $revision = $this->generals['autosave_interval'];
             $split_arr = explode('_', $revision);
             if (defined('AUTOSAVE_INTERVAL')) {
