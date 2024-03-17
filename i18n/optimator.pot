@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-03-06T19:18:08+00:00\n"
+"POT-Creation-Date: 2024-03-17T21:27:03+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: optimator\n"
@@ -69,15 +69,87 @@ msgid "Settings"
 msgstr ""
 
 #: dist/assets/index.js:25
-msgid "Introducing Optimator"
+msgid "Get Help"
 msgstr ""
 
 #: dist/assets/index.js:25
-msgid "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum dolor provident soluta ad omnis sit nostrum aperiam deleniti iste dolorum ducimus sunt nesciunt, illum perferendis quasi itaque amet deserunt similique?"
+msgid "Welcome"
 msgstr ""
 
 #: dist/assets/index.js:25
 msgid "Quick Toggle"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "If you like optimator, Leave "
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid " rating"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "About"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Documentation"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Contact"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Introducing Optimator"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Fast-loading websites improves the user experience, increases the website views, and can even help with WordPress SEO. Introducing Optimator, the most useful WordPress speed optimization plugin to boost WordPress performance and speed up your website."
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Visit Our Website"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Join the Community"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Do you have a question about the plugin or what to share about your feedback? Join our growing community!"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Join Now"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Knowledge Base"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Watch our Optimator Basic & Fundamental Video tutorials and more."
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Watch Now"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Enjoyed Optimator?"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "We love to hear from you, we would appreciate every single review."
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Rate Us Here"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Many of the Optimator's options can be applied by simply toggling them on."
 msgstr ""
 
 #: dist/assets/index.js:25
@@ -89,7 +161,15 @@ msgid "Disable Emojis"
 msgstr ""
 
 #: dist/assets/index.js:25
+msgid "Removes WordPress Emojis JavaScript file (wp-emoji-release.min.js)"
+msgstr ""
+
+#: dist/assets/index.js:25
 msgid "Disable Embeds"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Remove WordPress Embed JavaScript file (wp-embed.min.js)"
 msgstr ""
 
 #: dist/assets/index.js:25
@@ -97,7 +177,15 @@ msgid "Disable Dashicons"
 msgstr ""
 
 #: dist/assets/index.js:25
+msgid "Disable Dashicon on the frontend when not logged-in"
+msgstr ""
+
+#: dist/assets/index.js:25
 msgid "Disable XML-RPC"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable WordPress XML-RPC functionality"
 msgstr ""
 
 #: dist/assets/index.js:25
@@ -105,7 +193,15 @@ msgid "Remove jQuery Migrate"
 msgstr ""
 
 #: dist/assets/index.js:25
+msgid "Remove JQuery Migrate JavaScript file ( JQuery-migrate.min.js )"
+msgstr ""
+
+#: dist/assets/index.js:25
 msgid "Hide WP Version"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Remove WordPress version Meta Tag"
 msgstr ""
 
 #: dist/assets/index.js:25
@@ -113,7 +209,15 @@ msgid "Remove wlwmanifest link"
 msgstr ""
 
 #: dist/assets/index.js:25
+msgid "Remove wlwmanifest ( Windows Live Writer ) link tag"
+msgstr ""
+
+#: dist/assets/index.js:25
 msgid "Remove RSD link"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Remove RSD ( Real Simple Discovery ) link tag"
 msgstr ""
 
 #: dist/assets/index.js:25
@@ -121,7 +225,15 @@ msgid "Remove Shortlink"
 msgstr ""
 
 #: dist/assets/index.js:25
+msgid "Remove shortlink Link Tag"
+msgstr ""
+
+#: dist/assets/index.js:25
 msgid "Disable RSS feeds"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable WordPress generated RSS feeds and 301 redirect URL to parent"
 msgstr ""
 
 #: dist/assets/index.js:25
@@ -129,11 +241,23 @@ msgid "Remove RSS feed links"
 msgstr ""
 
 #: dist/assets/index.js:25
+msgid "Disable WordPress generated RSS feed link tags"
+msgstr ""
+
+#: dist/assets/index.js:25
 msgid "Disable Self Pingbacks"
 msgstr ""
 
 #: dist/assets/index.js:25
+msgid "Disable Self Pingbacks ( Generated when linking to an article on your own blog )"
+msgstr ""
+
+#: dist/assets/index.js:25
 msgid "Disable REST API"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disables REST API requests and displays an error message if the requester doesn’t have permission"
 msgstr ""
 
 #: dist/assets/index.js:25
@@ -153,7 +277,15 @@ msgid "Remove REST API links"
 msgstr ""
 
 #: dist/assets/index.js:25
+msgid "Removes REST API link tag from the frontend and the REST API header link from page requests"
+msgstr ""
+
+#: dist/assets/index.js:25
 msgid "Disable Google Maps"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Remove any instances of Google Maps being loaded across your entire site"
 msgstr ""
 
 #: dist/assets/index.js:25
@@ -161,7 +293,15 @@ msgid "Disable Password Strength Meter"
 msgstr ""
 
 #: dist/assets/index.js:25
+msgid "Removes WordPress and WooCommerce Password Strength Meter scripts from non-essential pages"
+msgstr ""
+
+#: dist/assets/index.js:25
 msgid "Disable Comments"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable WordPress comments across your entire site"
 msgstr ""
 
 #: dist/assets/index.js:25
@@ -169,7 +309,15 @@ msgid "Disable Comments URL"
 msgstr ""
 
 #: dist/assets/index.js:25
+msgid "Removes the WordPress comment author link and website field from blog posts"
+msgstr ""
+
+#: dist/assets/index.js:25
 msgid "Add Blank Favicon"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Adds a blank favicon to your WordPress header, which will prevent a missing favicon or 404 error. If you already have a favicon, you should leave this off"
 msgstr ""
 
 #: dist/assets/index.js:25
@@ -177,7 +325,15 @@ msgid "Disable Global Styles"
 msgstr ""
 
 #: dist/assets/index.js:25
+msgid "Remove the inline global styles ( CSS and SVG code) related to duotone filters"
+msgstr ""
+
+#: dist/assets/index.js:25
 msgid "Disable Heartbeat"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Disable WordPress HeartBeat everywhere or in certain areas ( used for auto-saving and revision tracking )"
 msgstr ""
 
 #: dist/assets/index.js:25
@@ -190,6 +346,10 @@ msgstr ""
 
 #: dist/assets/index.js:25
 msgid "Heartbeat Frequency"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Controls how often the WordPress HeartBeat API is allowed to run"
 msgstr ""
 
 #: dist/assets/index.js:25
@@ -226,6 +386,10 @@ msgstr ""
 
 #: dist/assets/index.js:25
 msgid "Limit Post Revisions"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Limits the maximum number of revisions allowed for posts and pages"
 msgstr ""
 
 #: dist/assets/index.js:25
@@ -277,6 +441,10 @@ msgid "Autosave Interval"
 msgstr ""
 
 #: dist/assets/index.js:25
+msgid "Controls how often WordPress will auto-save posts and pages while editing"
+msgstr ""
+
+#: dist/assets/index.js:25
 msgid "Disable Autosave Interval"
 msgstr ""
 
@@ -309,7 +477,15 @@ msgid "Disable Thumbnail"
 msgstr ""
 
 #: dist/assets/index.js:25
+msgid "Prevent WordPress from generating thumbnail images"
+msgstr ""
+
+#: dist/assets/index.js:25
 msgid "Disable Medium"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Prevent WordPress from generating medium images"
 msgstr ""
 
 #: dist/assets/index.js:25
@@ -317,7 +493,15 @@ msgid "Disable Medium Large"
 msgstr ""
 
 #: dist/assets/index.js:25
+msgid "Prevent WordPress from generating medium-large (768px) images"
+msgstr ""
+
+#: dist/assets/index.js:25
 msgid "Disable Large"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Prevent WordPress from generating large images"
 msgstr ""
 
 #: dist/assets/index.js:25
@@ -325,7 +509,15 @@ msgid "Disable 1536x1536"
 msgstr ""
 
 #: dist/assets/index.js:25
+msgid "Prevent WordPress from generating 1536x1536 images"
+msgstr ""
+
+#: dist/assets/index.js:25
 msgid "Disable 2048x2048"
+msgstr ""
+
+#: dist/assets/index.js:25
+msgid "Prevent WordPress from generating 2048x2048 images"
 msgstr ""
 
 #: dist/assets/index.js:25
@@ -342,36 +534,4 @@ msgstr ""
 
 #: dist/assets/index.js:25
 msgid "Media"
-msgstr ""
-
-#: dist/assets/index.js:25
-msgid "Welcome"
-msgstr ""
-
-#: dist/assets/index.js:25
-msgid "Optimize"
-msgstr ""
-
-#: dist/assets/index.js:25
-msgid "Upgrade"
-msgstr ""
-
-#: dist/assets/index.js:25
-msgid "If you like optimator, Leave "
-msgstr ""
-
-#: dist/assets/index.js:25
-msgid " rating"
-msgstr ""
-
-#: dist/assets/index.js:25
-msgid "About"
-msgstr ""
-
-#: dist/assets/index.js:25
-msgid "Documentation"
-msgstr ""
-
-#: dist/assets/index.js:25
-msgid "Content"
 msgstr ""
