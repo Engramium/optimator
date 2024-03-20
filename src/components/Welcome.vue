@@ -28,11 +28,11 @@ import { Right, StarFilled } from "@element-plus/icons-vue";
         <div class="btn-group">
           <el-button
             tag="a"
-            href="https://www.engramium.com/"
+            href="https://www.engramium.com/optimator/"
             target="_blank"
             size="large"
             type="success"
-            >{{ __("Visit Our Website", "optimator") }}</el-button
+            >{{ __("Learn More", "optimator") }}</el-button
           >
           <el-button
             tag="a"
