@@ -19,7 +19,7 @@ import { Right, StarFilled } from "@element-plus/icons-vue";
         <iframe
           width="100%"
           height="380"
-          src="https://www.youtube-nocookie.com/embed/Jc1u3PtXL-0?showinfo=0&autoplay=1&mute=1&rel=0&privacy=1"
+          src="https://www.youtube-nocookie.com/embed/Lp1IjxLUmbk?showinfo=0&autoplay=1&mute=1&rel=0&privacy=1"
           allow="autoplay"
           title="YouTube video player"
           frameborder="0"
@@ -28,15 +28,15 @@ import { Right, StarFilled } from "@element-plus/icons-vue";
         <div class="btn-group">
           <el-button
             tag="a"
-            href="https://www.engramium.com/optimator/"
+            href="https://engramium.com/optimator/"
             target="_blank"
             size="large"
             type="success"
-            >{{ __("Learn More", "optimator") }}</el-button
+            >{{ __("About Optimator", "optimator") }}</el-button
           >
           <el-button
             tag="a"
-            href="https://www.engramium.com/"
+            href="https://engramium.com/"
             target="_blank"
             size="large"
             >{{ __("Visit Our Website", "optimator") }}</el-button

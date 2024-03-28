@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-03-20T18:44:03+00:00\n"
+"POT-Creation-Date: 2024-03-28T07:57:28+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: optimator\n"
@@ -109,7 +109,7 @@ msgid "Fast-loading websites improves the user experience, increases the website
 msgstr ""
 
 #: dist/assets/index.js:25
-msgid "Learn More"
+msgid "About Optimator"
 msgstr ""
 
 #: dist/assets/index.js:25
