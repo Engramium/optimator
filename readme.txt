@@ -3,6 +3,7 @@ Plugin Name: Optimator
 Version: 1.0.0
 Author: engramium
 Author URI: https://engramium.com/
+Contributors: engramium
 Tags:  optimize, performance, speed, unbloat, page speed
 Requires at least: 5.0
 Tested up to: 6.4
