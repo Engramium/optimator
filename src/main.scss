@@ -2,27 +2,29 @@
 @import './scss/_mixins';
 
 .toplevel_page_optimator-settings {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p {
-    margin: 0;
-  }
-
-  img {
-    width: 100%;
-  }
-
-  .icon {
-    height: 25px;
-    width: 25px;
-  }
-
-  .pointer {
-    cursor: pointer;
+  #optimator-dashboard-app {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      margin: 0;
+    }
+  
+    img {
+      width: 100%;
+    }
+  
+    .icon {
+      height: 25px;
+      width: 25px;
+    }
+  
+    .pointer {
+      cursor: pointer;
+    }
   }
 
   #wpwrap {

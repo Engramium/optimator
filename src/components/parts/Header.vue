@@ -81,7 +81,7 @@ import Help from "./Help.vue";
       gap: 15px;
 
       img {
-        width: 144px;
+        width: 144px !important;
       }
 
       p {
